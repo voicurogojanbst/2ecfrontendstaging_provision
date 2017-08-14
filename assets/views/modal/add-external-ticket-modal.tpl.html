@@ -1,0 +1,41 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title">Add ticket to your account</h4>
+        <i class="close-modal glyphicon glyphicon-remove" ng-click="aetmc.closeModal()"></i>
+    </div>
+    <div class="modal-body">
+        <p>If you want to upgrade a hard-copy ticket you can add it to your account by entering the code found under the barcode. After this you will be able to upgrade it (add camping access, add VIP access, etc.).</p>
+        <p><strong>Important!</strong> You will use your original ticket to enter the festival, so take good care of it.</p>
+
+        <form name="addExternalTicketForm" ng-submit="aetmc.submit(addExternalTicketForm)" class="margin-top-20" novalidate>
+            <fieldset class="form-group form-group__error" ng-show="aetmc.flags.showError">
+                <div class="error-alert " ng-bind-html="aetmc.model.errorMessage"></div>
+            </fieldset>
+
+            <fieldset class="form-group form-group--full-width margin-bottom-5">
+                <div class="col-md-8 no-padding-left">
+                    <input type="text"
+                           id="code"
+                           class="form-control form-control--dark margin-bottom-5"
+                           name="code"
+                           placeholder="TICKET CODE"
+                           autocomplete="off"
+                           ng-class="{'has-error': addExternalTicketForm.code.$invalid && addExternalTicketForm.$submitted}"
+                           ng-required="true"
+                           ng-model="aetmc.model.code" />
+                </div>
+                <div class="col-md-4 no-padding-left">
+                    <button class="std-button std-button--light std-button--wide std-button--in-form w-100" type="submit"
+                            ng-disabled="addExternalTicketForm.$submitted && !addExternalTicketForm.$valid">
+                        Submit
+                    </button>
+                </div>
+                <div class="clearfix"></div>
+
+                <span ng-messages="addExternalTicketForm.code.$error" ng-show="addExternalTicketForm.$submitted">
+                    <span class="error" ng-message="required">{{'VALIDATIONS_ERRORS.IS_REQUIRED' | translate}}</span>
+                </span>
+            </fieldset>
+        </form>
+    </div>
+</div>

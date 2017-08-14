@@ -1,0 +1,128 @@
+<div class="container invitations-page">
+    <div class="col-md-10 col-md-offset-1">
+        <section class="api-errors animated fadeIn margin-top-50" ng-show="ic.flags.showErrors()">
+            {{ic.getError()}}
+        </section>
+
+        <section class="invitations__used margin-top-20">
+            <h2>
+                {{'INVITATIONS.USED_INVITATIONS' | translate}}
+                <small class="text-muted" ng-show="ic.flags.displayNoUsedInvitations()">{{'INVITATIONS.NO_USED_INVITATIONS' | translate}}</small>
+            </h2>
+
+            <form name="assignedInvitations" novalidate>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>{{'INVITATIONS.NAME' | translate}}</th>
+                            <th>{{'INVITATIONS.EMAIL' | translate}}</th>
+                            <th>{{'INVITATIONS.ACTIONS' | translate}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="usedInvitation in ic.getUsed()" class="text-left" ng-form name="assignedInvitationsRow">
+                            <td>{{$index + 1}}</td>
+                            <td>
+                                <div class="text-input" ng-class="{'has-errors': assignedInvitationsRow.name.$invalid && assignedInvitationsRow.name.$dirty}">
+                                    <input type="text"
+                                           name="name"
+                                           ng-focus="ic.editClickHandler($index)"
+                                           ng-required="true"
+                                           ng-model="usedInvitation.name"
+                                           ng-class="{'edit-mode': usedInvitation.editMode}" />
+
+                                    <p class="errors-container" ng-messages="assignedInvitationsRow.name.$error" ng-show="assignedInvitationsRow.name.$invalid && assignedInvitationsRow.name.$dirty">
+                                        <span class="error" ng-message="required">{{'VALIDATIONS_ERRORS.IS_REQUIRED' | translate}}</span>
+                                    </p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-input" ng-class="{'has-errors': assignedInvitationsRow.email.$invalid && assignedInvitationsRow.email.$dirty}">
+                                    <input type="email"
+                                           name="email"
+                                           ng-required="true"
+                                           ng-model="usedInvitation.email"
+                                           ng-focus="ic.editClickHandler($index)"
+                                           ng-class="{'edit-mode': usedInvitation.editMode}" />
+                                    <p class="errors-container" ng-messages="assignedInvitationsRow.email.$error" ng-show="assignedInvitationsRow.email.$invalid && assignedInvitationsRow.email.$dirty">
+                                        <span class="error" ng-message="required">{{'VALIDATIONS_ERRORS.IS_REQUIRED' | translate}}</span>
+                                        <span class="error" ng-message="email">{{'VALIDATIONS_ERRORS.NOT_A_VALID_EMAIL' | translate}}</span>
+                                    </p>
+                                </div>
+                            </td>
+                            <td>
+                                <button class="btn button button-black button-small" ng-click="ic.editClickHandler($index, true)"
+                                        ng-if="!usedInvitation.canBeSent"
+                                        ng-switch="usedInvitation.editMode"
+                                        ng-disabled="assignedInvitationsRow.$invalid">
+                                    <span ng-switch-when="true"><i class="fa fa-save"></i> {{'INVITATIONS.SAVE' | translate}}</span>
+                                    <span ng-switch-when="false"><i class="fa fa-edit"></i> {{'INVITATIONS.EDIT' | translate}}</span>
+                                </button>
+                                <button class="btn button button-yellow button-small" ng-if="usedInvitation.canBeSent && !usedInvitation.wasSent"
+                                        ng-click="ic.sendInvitationEmail(usedInvitation.send, $index)">
+                                    {{'INVITATIONS.SEND_FINAL' | translate}}
+                                </button>
+                                <i class="fa fa-check fa-2x text-success" ng-if="usedInvitation.wasSent"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </section>
+
+        <div class="clearfix"></div>
+
+        <form class="margin-bottom-50" name="invitations" ng-submit="ic.sendInvitations(invitations)" novalidate>
+            <section class="invitations__available">
+                <h2 class="margin-bottom-30">
+                    {{'INVITATIONS.AVAILABLE_INVITATIONS' | translate}}
+                    <small class="text-muted" ng-hide="ic.flags.displayNoAvailableInvitations()">{{'INVITATIONS.NUMBER_OF_AVAILABLE_INVITATIONS' | translate: {howMany: ic.getNumberOfAvailableInvitations()} }}</small>
+                    <small class="text-muted" ng-show="ic.flags.displayNoAvailableInvitations()">{{'INVITATIONS.NO_AVAILABLE_INVITATIONS' | translate}}</small>
+                </h2>
+
+                <button class="btn button button-yellow button-small pull-right margin-top-neg-80" type="button" ng-click="ic.addNewInvitation()">
+                    <i class="fa fa-plus"></i>
+                    {{'INVITATIONS.SECONDARY_CTA' | translate}}
+                </button>
+
+                <ul class="list-unstyled">
+                    <li ng-repeat="availableInvitation in ic.getAvailable()" ng-if="availableInvitation.isVisible">
+                        <ng-form name="invitationsRow">
+                            <fieldset class="text-input is-third" ng-class="{'has-errors': invitationsRow.name.$invalid && (invitationsRow.name.$dirty || invitations.$submitted)}">
+                                <input name="name" type="text" id="name-{{$index}}" ng-required="true" ng-model="availableInvitation.name" />
+                                <label for="name-{{$index}}">{{'INVITATIONS.NAME' | translate}}</label>
+
+                                <p class="errors-container" ng-messages="invitationsRow.name.$error" ng-show="invitationsRow.name.$invalid && (invitationsRow.name.$dirty || invitations.$submitted)">
+                                    <span class="error" ng-message="required">{{'VALIDATIONS_ERRORS.IS_REQUIRED' | translate}}</span>
+                                </p>
+                            </fieldset>
+
+                            <fieldset class="text-input is-third" ng-class="{'has-errors': invitationsRow.email.$invalid && (invitationsRow.email.$dirty || invitations.$submitted)}">
+                                <input name="email" type="email" id="email-{{$index}}" ng-required="true" ng-model="availableInvitation.email" />
+                                <label for="email-{{$index}}">{{'INVITATIONS.EMAIL' | translate}}</label>
+
+                                <p class="errors-container" ng-messages="invitationsRow.email.$error" ng-show="invitationsRow.email.$invalid && (invitationsRow.email.$dirty || invitations.$submitted)">
+                                    <span class="error" ng-message="required">{{'VALIDATIONS_ERRORS.IS_REQUIRED' | translate}}</span>
+                                    <span class="error" ng-message="email">{{'VALIDATIONS_ERRORS.NOT_A_VALID_EMAIL' | translate}}</span>
+                                </p>
+                            </fieldset>
+
+                            <i class="remove-invitation fa fa-remove" ng-show="ic.flags.shouldShowRemoveButton()" ng-click="ic.makeInvisible($index)"></i>
+                        </ng-form>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="invitations__controls">
+                <button type="submit" class="button button-yellow text-uppercase"
+                        ng-hide="ic.flags.displayNoAvailableInvitations()"
+                        analytics-on
+                        analytics-event="Invite users"
+                        analytics-category="Invitations">
+                    <strong>{{'INVITATIONS.MAIN_CTA' | translate}}</strong>
+                </button>
+            </section>
+        </form>
+    </div>
+</div>

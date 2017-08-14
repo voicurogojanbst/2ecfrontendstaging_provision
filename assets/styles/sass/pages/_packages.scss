@@ -1,0 +1,132 @@
+.packages-page {
+  padding-top    : 0;
+  padding-bottom : 30px;
+
+  .banner {
+    min-height      : 470px;
+    background      : url('/assets/img/info/packages-banner.jpg') center bottom no-repeat;
+    background-size : cover;
+
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+
+    @include breakpoint(sm) {
+      min-height : 380px;
+    }
+
+    @include breakpoint(xs) {
+      min-height    : 300px;
+    }
+
+    h1 {
+      color       : $white;
+      margin      : 0;
+      text-align  : center;
+      font-size   : 80px;
+      text-shadow : 1px 1px 1px rgba(0, 0, 0, 0.8);
+
+      @include breakpoint(xs) {
+        font-size : 60px;
+      }
+    }
+  }
+
+  h2 {
+    color          : $yellow-base;
+    text-transform : none;
+    font-family    : 'RobotoCondensed-Bold', Arial, Helvetica, sans-serif;
+    font-size      : 44px;
+    margin         : 40px 0 20px;
+
+    @include breakpoint(xs) {
+      font-size : 30px;
+      margin    : 20px 0;
+    }
+  }
+
+  h3.price {
+    color         : $grey-light;
+    margin-bottom : 20px;
+    font-family   : 'RobotoCondensed-Bold', Helvetica, Arial, sans-serif;
+  }
+
+  h4 {
+    color          : $white;
+    font-size      : 21px;
+    text-transform : none;
+    margin-bottom  : 15px;
+    margin-top     : 0;
+    font-family    : 'RobotoBold', Helvetica, Arial, sans-serif;
+
+    @include breakpoint(xs) {
+      margin-top : 20px;
+    }
+  }
+
+  p, ul {
+    font-size : $font-size-larger;
+    color     : $white;
+
+    margin-bottom : 20px;
+
+    a {
+      color : $white;
+    }
+  }
+
+  ul {
+    font-size     : $font-size-base;
+    padding-left  : 25px;
+    margin-bottom : 10px;
+    margin-top    : 0;
+  }
+
+  .item {
+    padding : 20px 0 15px;
+
+    @include breakpoint(xs) {
+      padding : 0;
+    }
+
+    p {
+      font-size : $font-size-base;
+    }
+
+    .flickity-viewport {
+      background : transparent;
+    }
+
+    .slider {
+      background : transparent;
+
+      &:hover .flickity-prev-next-button {
+        opacity    : 1;
+        background : transparent;
+      }
+    }
+
+    .call-to-action[disabled] {
+      color      : $grey-base-transp;
+      background : $yellow-base;
+      cursor     : not-allowed;
+    }
+
+    .sold-out {
+      position : absolute;
+      top      : 10px;
+      left     : 25px;
+
+      @include breakpoint(sm) {
+
+      }
+    }
+  }
+
+  .item-sold-out {
+    h4, p, ul,
+    h3.price {
+      color : $grey-base;
+    }
+  }
+}

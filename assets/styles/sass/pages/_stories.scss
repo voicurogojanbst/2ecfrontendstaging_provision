@@ -1,0 +1,267 @@
+.stories-page {
+  padding-top : 0;
+
+  h1 {
+    color          : $white;
+    font-family    : 'RobotoMedium', Arial, sans-serif;
+    text-transform : none;
+    font-size      : 90px;
+    line-height    : 65px;
+    margin-bottom  : 0;
+
+    @include breakpoint(sm) {
+      font-size   : 60px;
+      line-height : 45px;
+      margin-top  : 0;
+    }
+
+    @include breakpoint(xs) {
+      font-size   : 40px;
+      line-height : 30px;
+    }
+
+    @include breakpoint(xxs) {
+
+    }
+  }
+
+  .article-list {
+    padding : 40px 0;
+
+    @include breakpoint(xs) {
+      padding : 20px 0;
+    }
+
+    .grid {
+      margin-top : 0;
+    }
+
+    .grid__sizer,
+    .grid__item {
+      width: 24.99%;
+
+      @include breakpoint(sm) {
+        width: 33.33%;
+      }
+
+      @include breakpoint(xs) {
+        width: 49.99%;
+      }
+
+      @include breakpoint(xxs) {
+        width: 100%;
+      }
+    }
+
+    .grid__item--size-a {
+      width: 49.99%;
+
+      @include breakpoint(sm) {
+        width: 33.33%;
+      }
+
+      @include breakpoint(xs) {
+        width: 49.99%;
+      }
+
+      @include breakpoint(xxs) {
+        width: 100%;
+      }
+    }
+
+    .item {
+      border     : 1px solid $white-transp-light;
+      padding    : 15px;
+      min-height : 280px;
+
+      @include breakpoint(sm) {
+        min-height : 0;
+      }
+    }
+
+    a {
+      text-decoration : none;
+
+      img {
+        width : 100%;
+      }
+
+      &:hover {
+        text-decoration : none;
+
+        p, h5, img {
+          text-decoration : none;
+          opacity         : 0.9;
+        }
+      }
+    }
+
+    h5 {
+      color          : $white;
+      font-size      : 18px;
+      margin-bottom  : 5px;
+      margin-top     : 15px;
+      text-align     : left;
+      text-transform : none;
+      font-family    : 'RobotoMedium', sans-serif;
+
+      a {
+        color           : $white;
+        text-decoration : underline;
+      }
+    }
+
+    p {
+      font-size  : 16px;
+      color      : $white;
+      text-align : left;
+      margin     : 0;
+      font-family: 'RobotoLight', sans-serif;
+    }
+
+    .title-area {
+      margin-top : 10px;
+    }
+
+    .category {
+      position : absolute;
+
+      top     : 30px;
+      right   : 30px;
+      padding : 0 10px;
+
+      background    : $yellow-base;
+      border-radius : 3px;
+    }
+  }
+
+  .article-details {
+    h5 {
+      font-size : 18px;
+
+      span {
+        font-size   : 16px;
+        display     : block;
+      }
+    }
+
+    img {
+      width  : 100%;
+      height : auto;
+    }
+
+    p {
+      font-size     : $font-size-large;
+      margin-bottom : 20px;
+    }
+
+    .article-text {
+      font-family : 'Roboto', Helvetica
+      , Arial, sans-serif;
+
+      img {
+        width  : 100%;
+        height : auto;
+      }
+    }
+
+    iframe {
+      width      : 100%;
+      border     : 0;
+      cursor     : pointer;
+      display    : block;
+      z-index    : 3;
+      position   : static;
+      min-height : 400px;
+    }
+  }
+
+  .author {
+    padding-bottom : 15px;
+
+    p {
+      font-size   : 14px;
+      line-height : 16px;
+    }
+  }
+
+  .button-black {
+    font-size     : 16px;
+    padding       : 7px 12px 5px;
+    margin-bottom : 6px;
+  }
+}
+
+.story-details {
+  @include breakpoint(xs) {
+    padding-top : 20px;
+  }
+
+  h1 {
+    font-family    : 'RobotoCondensed-Bold', Arial, sans-serif;
+    text-transform : none;
+    font-size      : 30px;
+    line-height    : 30px;
+    margin         : 30px 0 0 0;
+    color          : $grey-dark;
+  }
+
+  h2 {
+    font-family : 'Roboto', Arial, sans-serif;
+    font-size   : 18px;
+    padding     : 0;
+    margin      : 10px 0 30px;
+  }
+
+  .article-list {
+    padding : 0;
+
+
+    @include breakpoint(sm) {
+      .col-md-3 {
+        min-height : 300px;
+      }
+    }
+
+    h4 {
+      margin         : 0 0 40px 0;
+      text-transform : none;
+    }
+
+    h5 {
+      color      : $grey-dark;
+      font-size  : 16px;
+      margin-top : 10px;
+    }
+
+    p {
+      color         : $grey-dark;
+      font-size     : 14px;
+      font-family   : 'Roboto', sans-serif;
+      margin-bottom : 10px;
+    }
+  }
+
+  hr {
+    border-top-width : 2px;
+    margin-top       : 40px;
+    margin-bottom    : 40px;
+  }
+
+  a.back {
+    padding         : 20px 0 20px 10px;
+    display         : block;
+    font-size       : 16px;
+    line-height     : 16px;
+    text-decoration : none;
+
+    &:hover {
+      opacity : 0.6;
+    }
+
+    i {
+      position : relative;
+      top      : 1px;
+    }
+  }
+}

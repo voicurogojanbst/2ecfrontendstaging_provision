@@ -1,0 +1,15 @@
+<div class="login-overlay">
+    <div class="container">
+        <div class="login-overlay__close">
+            <a href="javascript:void(0)" class="link" ng-click="lfoc.cb.close()">
+               {{'ACTIONS.CLOSE' | translate}}
+            </a>
+        </div>
+
+        <p class="text-center text-light login-overlay__description">
+            Enroll for Early Bird Tickets by simply logging into your existing account or by
+            <a ui-sref="ElectricCastlePublic.Register" class="link">registering</a> if you don't have one already.
+        </p>
+        <login-form post-login-action="REDIRECT_TICKETS"></login-form>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="flex">
+    <div class="" ng-show="hac.isLoggedIn()">
+        <a ui-sref="ElectricCastlePublic.MyAccount.Orders" class="link text-uppercase">My Account</a>
+        <a ui-sref-active="is-active" class="link" href="javascript:void(0)" ng-click="hac.logout()">Logout</a>
+    </div>
+    <div class="" ng-hide="hac.isLoggedIn()">
+        <a ui-sref="ElectricCastlePublic.Login" ui-sref-active="is-active" class="link text-uppercase">{{'LOGIN.BUTTON' | translate}}</a>
+        <a ui-sref="ElectricCastlePublic.Register" ui-sref-active="is-active" class="link text-uppercase">{{'LOGIN.REGISTER' | translate}}</a>
+    </div>
+    <div class="user-basket">
+        <a class="user-basket__link flex flex-v-center" ui-sref-active="is-active" ui-sref="ElectricCastlePublic.Basket">
+            <img src="/assets/img/redesign/svg/cart-icon.svg" class="img-responsive center-block" alt="" />
+            <span class="user-basket__link__quantity hidden-xs">({{hac.getHeaderUserData().cartQty}})</span>
+        </a>
+    </div>
+</div>

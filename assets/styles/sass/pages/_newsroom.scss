@@ -1,0 +1,227 @@
+.newsroom-page {
+  padding : 0;
+
+  .banner {
+    min-height      : 500px;
+    padding         : 60px 0 20px;
+    background      : $black url('/assets/img/bg/bg-newsroom-banner.jpg') center 70% no-repeat;
+    background-size : cover;
+
+    a, a:link, a:visited, a:hover, a:active {
+        text-decoration : none;
+    }
+
+    h1 {
+      color          : $yellow-base;
+      font-size      : 60px;
+      line-height    : 62px;
+      margin-bottom  : 0;
+      text-shadow    : 1px 1px 1px rgba(0, 0, 0, 0.8);
+
+      small {
+        display     : inline-block;
+        font-family : 'Roboto', Helvetica, Arial, sans-serif;
+        font-size   : 14px;
+        font-weight : 500;
+        color       : $black;
+        background  : $white;
+        text-shadow : none;
+
+        text-transform : uppercase;
+        letter-spacing : 0;
+        line-height    : 16px;
+        padding        : 4px 5px 1px;
+
+        position : relative;
+        bottom   : 3px;
+      }
+
+      a:hover small {
+        background : $white;
+      }
+    }
+
+    h2 {
+      font-family : 'Roboto', Helvetica, Arial, sans-serif;
+      color       : $white;
+      font-size   : 21px;
+      margin-top  : 6px;
+      text-shadow   : 1px 1px 1px rgba(0, 0, 0, 0.8);
+    }
+
+    .home-link {
+      color        : $white;
+      text-shadow  : 1px 1px 1px rgba(0, 0, 0, 0.8);
+      padding-left : 8px;
+      margin-top   : 10px;
+
+      a {
+        color : $white;
+
+        &:hover {
+          color : $grey-light;
+        }
+      }
+    }
+
+    a:hover {
+      text-decoration : none;
+
+      h1, img {
+        opacity : 0.8;
+      }
+    }
+  }
+
+  .article-list {
+    padding-bottom : 30px;
+    margin-top     : 30px;
+
+    a {
+      text-decoration : none;
+
+      img {
+        min-height : 142px;
+        width      : 100%;
+      }
+      p, h5 {
+        line-height : 20px;
+      }
+
+      &:hover {
+          text-decoration : none;
+
+          p, h5 {
+            color : $grey-cool;
+          }
+      }
+    }
+
+    .col-md-3 {
+        min-height : 280px;
+    }
+
+    h3 {
+      color          : $grey-middle;
+      text-align     : center;
+      padding        : 20px 0;
+    }
+
+    h5 {
+      color         : $black;
+      margin-bottom : 5px;
+      margin-top    : 18px;
+
+      a {
+        color           : $grey-base;
+        text-decoration : underline;
+      }
+    }
+
+    p {
+      font-size : 14px;
+    }
+
+    .title-area {
+      margin-top    : -10px
+    }
+
+    small {
+      display     : inline-block;
+      font-size   : 13px;
+      font-weight : 500;
+      color       : $black;
+      background  : $white;
+      text-shadow : none;
+
+      text-transform : uppercase;
+      letter-spacing : 0;
+      line-height    : 14px;
+      padding        : 4px 4px 1px;
+
+      position : absolute;
+      top      : 5px;
+      left     : 20px;
+    }
+  }
+
+  .article-details {
+    padding : 20px 0 50px;
+
+    h5 {
+      font-weight : bold;
+      span {
+        font-size   : 14px;
+        display     : block;
+        font-weight : normal;
+      }
+    }
+
+    p {
+      font-size     : $font-size-large;
+      margin-bottom : 20px;
+    }
+
+    .article-text {
+      img {
+        width  : 100%;
+        height : auto;
+      }
+    }
+
+    iframe {
+      width      : 100%;
+      border     : 0;
+      cursor     : pointer;
+      display    : block;
+      z-index    : 3;
+      position   : static;
+      min-height : 400px;
+    }
+  }
+
+  .button {
+    font-size     : 16px;
+    padding       : 7px 12px 5px;
+    margin-bottom : 6px;
+  }
+
+  @include breakpoint(xs) {
+      .banner {
+        min-height            : 300px;
+        padding               : 60px 0 20px;
+        background-attachment : scroll;
+
+        .margin-top-100 {
+          margin-top : 10px;
+        }
+
+        h1 {
+          font-size   : 38px;
+          line-height : 32px;
+
+          small {
+            margin-bottom : 10px;
+          }
+        }
+
+        h2 {
+          color       : $white;
+          font-size   : 16px;
+          margin-top  : 6px;
+        }
+      }
+
+      .article-list {
+        h3 {
+          letter-spacing : 1px;
+          font-size      : 28px;
+          padding        : 15px 0;
+        }
+      }
+
+      .article-details {
+          padding-bottom : 20px;
+      }
+  }
+}

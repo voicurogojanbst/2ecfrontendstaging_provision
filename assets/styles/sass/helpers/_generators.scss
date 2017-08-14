@@ -1,0 +1,67 @@
+$margins: 0, 5, 10, 14, 15, 20, 30, 40, 50, 60, 70, 80, 90, 100, 120, 140, 200;
+
+@each $margin in $margins {
+  .margin-#{$margin} {
+    margin : #{$margin * 1px} !important;
+  }
+
+  .margin-top-#{$margin} {
+    margin-top : #{$margin * 1px} !important;
+  }
+
+  .margin-bottom-#{$margin} {
+    margin-bottom : #{$margin * 1px} !important;
+  }
+
+  .margin-left-#{$margin} {
+    margin-left : #{$margin * 1px} !important;
+  }
+
+  .margin-right-#{$margin} {
+    margin-right : #{$margin * 1px} !important;
+  }
+
+  .margin-top-#{$margin}-vh {
+    margin-top : #{$margin * 1vh} !important;
+  }
+
+  .margin-bottom-#{$margin}-vh {
+    margin-bottom : #{$margin * 1vh} !important;
+  }
+
+  .margin-top-neg-#{$margin} {
+    margin-top : #{$margin * -1px} !important;
+  }
+
+  .margin-bottom-neg-#{$margin} {
+    margin-bottom : #{$margin * -1px};
+  }
+}
+
+$paddings: 0, 5, 10, 14, 15, 20, 30, 40, 50, 70, 80, 90, 100, 120, 140, 200;
+
+@each $padding in $paddings {
+  .padding-top-#{$padding} {
+    padding-top : #{$padding * 1px} !important;
+  }
+
+  .padding-bottom-#{$padding} {
+    padding-bottom : #{$padding * 1px} !important;
+  }
+
+  .padding-left-#{$padding} {
+    padding-left : #{$padding * 1px};
+  }
+
+  .padding-right-#{$padding} {
+    padding-right : #{$padding * 1px};
+  }
+}
+
+.padding-0 {
+    padding : 0 !important;
+}
+
+.margin-0 {
+    margin : 0 !important;
+}

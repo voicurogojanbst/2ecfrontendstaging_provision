@@ -1,0 +1,230 @@
+.button,
+a.button {
+    border           : none;
+    text-align       : center;
+    text-decoration  : none;
+    font-size        : $font-size-larger;
+    border-radius    : 0;
+    padding          : 10px 20px;
+    background-color : transparent;
+    color            : $white;
+    transition       : all 0.25s linear;
+    font-family      : 'Roboto', Helvetica, Arial, sans-serif;
+
+    &:focus {
+        outline : none;
+    }
+
+    &[disabled],
+    &[disabled]:hover {
+        color  : $grey-base;
+        cursor : not-allowed;
+    }
+
+    &:hover {
+        text-decoration : none;
+    }
+
+    &--has-border {
+        border : 2px solid transparent;
+
+        &--white {
+            border-color : $white;
+        }
+
+        &--dark {
+            border-color : $grey-dark;
+
+            &:hover {
+                border-color : $yellow-base;
+            }
+        }
+
+        &--yellow {
+            border-color : $yellow-base;
+
+            &:hover {
+                border-color : $grey-dark;
+            }
+        }
+
+        &--black {
+            border-color : $grey-dark;
+
+            &:hover {
+                color        : $grey-dark;
+                border-color : $grey-middle;
+            }
+        }
+    }
+
+    &--round {
+      color         : $grey-base;
+      border-color  : $grey-base;
+      border-radius : 50%;
+
+      padding : 10px;
+      width   : 50px;
+      height  : 50px;
+
+      font-size   : 22px;
+      line-height : 22px;
+
+      &:hover {
+        color        : $grey-dark;
+        border-color : $grey-dark;
+      }
+    }
+
+   &--has-bg {
+     &--yellow {
+       background-color : $yellow-base;
+       border-color     : $grey-dark;
+
+       &:hover {
+         background-color : $yellow-transp;
+       }
+     }
+
+     &--black {
+       background-color : $black;
+       border-color     : $grey-dark;
+
+       &:hover {
+         background-color : $grey-dark;
+       }
+     }
+   }
+
+    &-block {
+        width : 100%;
+    }
+
+    &-xs-block {
+        @include breakpoint(xs) {
+            width : 100%;
+        }
+    }
+
+    &--in-form {
+        font-size  : $font-size-large;
+        padding    : 7px 10px;
+        max-height : 42px;
+    }
+
+    &--large {
+        font-size : 2 * $font-size-base;
+    }
+
+    &--small {
+        font-size : 16px;
+    }
+
+    &--dark {
+        color : $grey-dark;
+    }
+}
+
+.btn,
+.btn-primary {
+  border-radius : 0;
+}
+
+.btn-primary {
+    background-color : $yellow-pantone;
+    border-color     : $yellow-pantone;
+    color            : $grey-dark;
+    font-weight      : bold;
+    outline          : none;
+
+    &:active:focus,
+    &:active,
+    &:focus {
+       background-color : $yellow-pantone;
+       border-color     : $yellow-pantone;
+       color            : $grey-dark;
+       font-weight      : bold;
+       outline          : none;
+    }
+
+    &:active:hover,
+    &:hover {
+        background-color : $yellow-secondary;
+        border-color     : $yellow-pantone;
+        color            : $grey-dark;
+        font-weight      : bold;
+        outline          : none;
+    }
+}
+
+.btn-link {
+  color : $grey-dark;
+
+  &:hover {
+    color : $grey-base;
+  }
+}
+
+a.std-button,
+.std-button {
+  background  : #333;
+  color       : $white;
+  border      : 1px solid $grey-dark;
+  height      : 50px;
+  line-height : 50px;
+  min-width   : 170px;
+  font-size   : 14px;
+  padding     : 0 20px;
+
+  border-radius   : 0;
+  font-family     : 'RobotoCondensed-Bold', Helvetica, Arial, sans-serif;
+  text-transform  : uppercase;
+  text-align      : center;
+  text-decoration : none;
+
+  &:hover {
+    background-color : #111;
+  }
+
+  &:disabled,
+  &:disabled:hover,
+  &[disabled],
+  &[disabled]:hover{
+    color        : #999;
+    background   : #e2e2e2;
+    cursor       : not-allowed;
+    border-color : $grey-light;
+  }
+
+  &--wide {
+    font-family : 'RobotoBold', Helvetica, Arial, sans-serif;
+  }
+
+  &--in-form {
+    height      : 42px;
+    line-height : 42px
+  }
+
+  &--light {
+    background : $yellow-base;
+    color      : $grey-dark;
+
+    &:hover {
+      background-color : $yellow-secondary;
+    }
+  }
+
+  &--bordered {
+    background : transparent;
+    border     : 1px solid $grey-dark;
+    color      : $grey-dark;
+
+    &:hover {
+      color : $white;
+    }
+  }
+}
+
+a.std-button {
+  display : inline-block;
+}

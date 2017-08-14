@@ -1,0 +1,413 @@
+.basket-page {
+  h1 {
+    color       : $grey-base-transp-3;
+    font-family : SteelfishBold, Arial, Helvetica, sans-serif;
+    padding     : 0;
+    margin      : 0 0 25px 0;
+    font-size   : 40px;
+
+    @include breakpoint(xs) {
+      margin : 22px 0 5px 0;
+    }
+  }
+
+  h2 {
+    font-family    : 'SteelfishBold', Helvetica, Arial, sans-serif;
+    text-transform : none;
+    margin         : 0 0 10px 0;
+
+    @include breakpoint(xs) {
+      margin : 10px 0;
+    }
+  }
+
+  h4, h5 {
+    text-transform : none;
+    margin-top     : 8px;
+    margin-bottom  : 4px;
+  }
+
+  h5 {
+    font-size : 14px;
+
+    @include breakpoint(xs) {
+      font-size : 12px;
+    }
+  }
+
+  form {
+    background : $white;
+    padding    : 30px;
+
+    @include breakpoint(xs) {
+      padding : 10px;
+    }
+  }
+
+  input {
+    display : block;
+    margin  : 2px auto 0 auto;
+    padding : 5px 2px 5px 10px;
+    width   : 50px;
+
+    border           : 1px solid $grey-light;
+    background-color : transparent;
+    color            : $grey-dark;
+    text-overflow    : ellipsis;
+    border-radius    : 0;
+    font-size        : $font-size-base;
+
+    transition : 0.25s linear;
+
+    &:focus {
+      outline : none;
+    }
+  }
+
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    opacity : 1;
+  }
+
+  img:hover {
+    opacity : 0.9;
+  }
+
+  .btn-link {
+    font-size  : 13px;
+    margin-top : 3px;
+
+    text-decoration : underline;
+  }
+
+  .table {
+    tbody {
+      border-bottom : 4px solid #ddd;
+    }
+
+    tr {
+      th {
+        color         : $grey-base;
+        font-family   : 'RobotoCondensed-Bold', Arial, sans-serif;
+        font-size     : $font-size-large;
+        border-bottom : 4px solid #ddd;
+        padding-left  : 0;
+
+        @include breakpoint(sm) {
+          font-size : $font-size-base;
+        }
+      }
+
+      td {
+        border-top : 0;
+        padding    : 15px 0;
+
+        img {
+          width        : 30px;
+          float        : left;
+          margin-right : 20px;
+        }
+      }
+
+      &.error {
+        td {
+          h5 {
+            color : $american-rose;
+          }
+        }
+      }
+    }
+
+    tfoot {
+      font-family    : SteelfishBold, Arial, Helvetica, sans-serif;
+      font-size      : 26px;
+      letter-spacing : 0.1px;
+
+      .not-bold {
+        font-family : Steelfish, Arial, Helvetica, sans-serif;
+      }
+
+      td {
+        line-height : 26px;
+      }
+
+      small {
+        font-size : 20px;
+      }
+
+      @include breakpoint(sm) {
+        font-size : 24px;
+
+        td {
+          line-height : 24px;
+        }
+
+        small {
+          font-size : 18px;
+        }
+      }
+    }
+
+    strong {
+      min-width  : 50px;
+      display    : inline-block;
+      text-align : right;
+    }
+
+    @include breakpoint(xs) {
+      margin-bottom : 20px;
+      display       : block;
+
+      input {
+        margin : 1px 0 0 0;
+        float  : right;
+      }
+
+      thead,
+      tbody,
+      tfoot,
+      tr, td, th {
+        display : block;
+      }
+
+      tr {
+      }
+
+      tr th {
+        width     : 100%;
+        font-size : 16px;
+      }
+
+      tr td {
+        padding : 5px 0;
+        display : inline-block;
+
+        img {
+          margin-right : 10px;
+        }
+
+        &.desc {
+          width         : 75%;
+          border-bottom : 1px solid #ddd;
+        }
+
+        &.qty {
+          width         : 25%;
+          border-bottom : 1px solid #ddd;
+          text-align    : right;
+          min-height    : 41px;
+        }
+
+        &.price {
+          width          : 75%;
+          text-align     : left;
+          padding-bottom : 0;
+
+          label {
+            font-size : 9.5px;
+          }
+
+          h5 {
+            margin-top : 4px;
+          }
+        }
+
+        &.remove {
+          width          : 25%;
+          padding-bottom : 20px;
+
+          .btn-link {
+            font-size: 11px;
+          }
+        }
+      }
+
+      tfoot {
+        font-size : 20px;
+
+        tr td {
+          display     : inline-block;
+          width       : 80%;
+          text-align  : left;
+          line-height : 20px;
+          padding-top : 10px;
+
+          &.total {
+            width : 20%;
+          }
+
+          small {
+            font-size : 18px;
+          }
+        }
+      }
+    }
+  }
+
+  hr {
+    margin     : 10px;
+    border-top : 1px solid $grey-light;
+  }
+
+  .checkout-area .std-button {
+    width : 210px;
+
+    padding-left  : 0;
+    padding-right : 0;
+
+    @include breakpoint(xs) {
+      width  : calc(100% - 30px);
+      margin : 5px 15px;
+    }
+  }
+
+  .payment-method {
+    padding  : 12px 30px 30px 30px;
+    cursor   : pointer;
+    position : relative;
+
+    @include breakpoint(sm) {
+      margin-bottom : 15px;
+    }
+
+    @include breakpoint(xs) {
+      padding : 10px 15px 15px 15px;
+    }
+
+    &:hover {
+      background-color : rgba(254, 225, 51, 0.1);
+    }
+
+    h4 {
+      font-size   : 17px;
+      font-weight : bold;
+      line-height : 28px;
+
+      span {
+        font-size : 25px;;
+      }
+    }
+
+    p {
+      margin-top : 15px;
+    }
+
+    img {
+      position : absolute;
+      bottom   : 80px;
+      right    : 30px;
+    }
+
+    &.selected {
+      background-color : rgba(254, 225, 51, 0.1);
+    }
+  }
+}
+
+.bootstrap-select:not([class*="span"]):not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+  width : 280px;
+}
+
+.basket-page {
+  .bootstrap-select:not([class*="span"]):not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+    width : 100%;
+  }
+
+  .bootstrap-select + .bootstrap-select {
+    display : none;
+  }
+}
+
+.shop-page {
+  .bootstrap-select:not([class*="span"]):not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+    width : 80px;
+  }
+
+  .bootstrap-select > button.dropdown-toggle {
+    padding     : 7px 14px;
+    line-height : 22px;
+  }
+
+  .bootstrap-select + .bootstrap-select {
+    display : none;
+  }
+}
+
+.bootstrap-select.btn-group:not(.input-group-btn) {
+  vertical-align : top;
+}
+
+.bootstrap-select {
+  width : 280px;
+
+  &:focus {
+    outline : none !important;
+  }
+
+  & > button.dropdown-toggle {
+    padding   : 9px 12px 7px 12px;
+    width     : 100%;
+    font-size : $font-size-large;
+
+    background-color : $white-transp;
+    box-shadow       : none;
+
+    &:hover {
+      background-color : $white-transp;
+      box-shadow       : none;
+    }
+
+    &:focus {
+      outline : none !important;
+    }
+  }
+
+  .dropdown-menu {
+    border-radius : 0;
+    border        : none;
+    padding-top   : 0;
+    z-index       : $zIndex--max;
+
+    input {
+      border-radius : 0;
+      box-shadow    : none;
+      width         : 100%;
+
+      &:focus {
+        outline : none;
+      }
+    }
+
+    li {
+      a {
+        font-size : $font-size-large;
+      }
+
+      &.selected a:focus,
+      &.selected a:hover,
+      &.selected a:active {
+        outline : none;
+      }
+
+      &.active a,
+      &.selected a,
+      a:hover {
+        background-color : $grey-light;
+        color            : $black;
+      }
+    }
+  }
+}
+
+.basket .bootstrap-select,
+.shop-page .bootstrap-select {
+  & > button.dropdown-toggle {
+    background-color : $grey-light;
+    border           : none;
+    border-radius    : 0;
+  }
+}
+
+.bootbox-body {
+  font-size : $font-size-base;
+}

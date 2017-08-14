@@ -1,0 +1,152 @@
+<nav class="app-menu">
+    <div class="container flex">
+        <section class="menu-items" data-js="menu-items">
+            <div class="menu-items__item">
+                <h2 class="menu-items__item__title">Festival</h2>
+                <p class="links-container">
+                    <a ui-sref="ElectricCastlePublic.About" ui-sref-active="is-active" class="link">
+                        About
+                    </a>
+                    <a ui-sref="ElectricCastlePublic.History" ui-sref-active="is-active" class="link">
+                        History
+                    </a>
+                    <a ui-sref="ElectricCastlePublic.TheCastle" ui-sref-active="is-active" class="link">
+                        Castle
+                    </a>
+                    <a ui-sref="ElectricCastlePublic.Travel" ui-sref-active="is-active" class="link">
+                        Travel Destination
+                    </a>
+                </p>
+                <p class="links-container">
+                    <a ui-sref="ElectricCastlePublic.Merchandise" ui-sref-active="is-active" class="link">
+                        Merchandise
+                    </a>
+                    <a ui-sref="ElectricCastlePublic.Tickets" ui-sref-active="is-active" class="link">
+                        Tickets
+                    </a>
+                </p>
+            </div>
+
+            <div class="menu-items__item">
+                <h2 class="menu-items__item__title">EC 2017</h2>
+                <p class="links-container">
+                    <a ui-sref="ElectricCastlePublic.LineUp.List" ui-sref-active="is-active" class="link">
+                        Line Up
+                    </a>
+                    <a ui-sref="ElectricCastlePublic.NewSchedule" ui-sref-active="is-active" class="link">
+                        Schedule
+                    </a>
+                    <a ui-sref="ElectricCastlePublic.GettingThere" ui-sref-active="is-active" class="link">
+                        Getting There
+                    </a>
+                    <a ui-sref="ElectricCastlePublic.LostAndFound" ui-sref-active="is-active" class="link">
+                        Lost &amp; Found
+                    </a>
+                </p>
+                <p class="links-container">
+                    <a ui-sref="ElectricCastlePublic.Stories" ui-sref-active="is-active" class="link">
+                        The Journal
+                    </a>
+                    <a href="https://youtu.be/yKvWQbCrxHI" target="_blank" ui-sref-active="is-active" class="link">
+                        'Thank You' Movie
+                    </a>
+                </p>
+            </div>
+
+            <div class="menu-items__item">
+                <h2 class="menu-items__item__title">Partners</h2>
+                <p class="links-container">
+                    <a ui-sref="ElectricCastlePublic.Partners" ui-sref-active="is-active" class="link">
+                        Our Partners
+                    </a>
+
+                    <a ui-sref="ElectricCastlePublic.Advertising" ui-sref-active="is-active" class="link">
+                        Media &amp; Advertising
+                    </a>
+                </p>
+            </div>
+
+            <div class="menu-items__item margin-bottom-60">
+                <h2 class="menu-items__item__title">Technical Stuff</h2>
+                <p class="links-container">
+                    <a ui-sref="ElectricCastlePublic.Faq.Tickets" ui-sref-active="is-active" class="link">
+                        FAQ
+                    </a>
+
+                    <a ui-sref="ElectricCastlePublic.RulesAndRegulations" ui-sref-active="is-active" class="link">
+                        Rules &amp; Regulations
+                    </a>
+
+                    <a ui-sref="ElectricCastlePublic.Press" ui-sref-active="is-active" class="link">
+                        Press &amp; Media
+                    </a>
+                </p>
+            </div>
+        </section>
+
+        <section class="festival-account hidden-xs">
+            <div class="festival-account__item" ng-show="mmc.cb.isLoggedIn()">
+                <h2 class="festival-account__item__title" ui-sref="ElectricCastlePublic.MyAccount.Orders">Festival account</h2>
+                <p class="links-container">
+                    <a ui-sref="ElectricCastlePublic.MyAccount.Orders" ui-sref-active="is-active" class="link">
+                        My orders
+                    </a>
+                    <a ui-sref="ElectricCastlePublic.MyAccount.Settings" ui-sref-active="is-active" class="link">
+                        Settings
+                    </a>
+                    <a ui-sref="ElectricCastlePublic.ChangePassword" ui-sref-active="is-active" class="link">
+                        Change Pass.
+                    </a>
+                    <a ui-sref-active="is-active" class="link" href="javascript:void(0)" ng-click="mmc.cb.logout()">
+                        Logout
+                    </a>
+                </p>
+            </div>
+
+            <div class="festival-account__item">
+                <h2 class="festival-account__item__title">Newsletter</h2>
+                <p class="text-light-grey">
+                    {{'FOOTER.EMAIL_SUBSCRIBE' | translate}}
+                </p>
+                <form name="newsletterForm" ng-submit="fc.subscribe(newsletterForm)" class="newsletter" novalidate="true">
+                    <div class="flex">
+                        <input type="email"
+                               id="email"
+                               name="email"
+                               class="form-control margin-right-10"
+                               placeholder="{{'REGISTER.EMAIL' | translate}}"
+                               autocomplete="off"
+                               ng-pattern="/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/"
+                               ng-class="{'has-error': newsletterForm.email.$invalid && newsletterForm.$submitted}"
+                               ng-required="true"
+                               ng-model="fc.model.email" />
+                        <button type="submit" class="call-to-action call-to-action--in-form text-uppercase">Subscribe</button>
+                    </div>
+
+                    <span ng-messages="newsletterForm.email.$error" ng-show="newsletterForm.$submitted">
+                        <span class="error text-error" ng-message="required">{{'VALIDATIONS_ERRORS.IS_REQUIRED' | translate}}</span>
+                        <span class="error text-error" ng-message="pattern">{{'VALIDATIONS_ERRORS.NOT_A_VALID_EMAIL' | translate}}</span>
+                    </span>
+                </form>
+            </div>
+
+            <div class="festival-account__item">
+                <h2 class="festival-account__item__title">Social links</h2>
+                <p class="links-container">
+                    <a href="https://www.facebook.com/ElectricCastle" target="_blank" class="link">
+                        Facebook
+                    </a>
+                    <a href="https://instagram.com/electriccastle/" target="_blank" class="link">
+                        Instagram
+                    </a>
+                    <a href="https://twitter.com/Electric_Castle" target="_blank" class="link">
+                        Twitter
+                    </a>
+                    <a href="https://www.youtube.com/user/ElectricCastleCluj" target="_blank" class="link">
+                        Youtube
+                    </a>
+                </p>
+            </div>
+        </section>
+    </div>
+</nav>

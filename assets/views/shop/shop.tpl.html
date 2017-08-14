@@ -1,0 +1,68 @@
+<div class="page-container__bg-grey page-container__full-height">
+    <div class="container shop-page" shop-grid="sc.getProducts()">
+        <div class="bar" ng-show="sc.shouldDisplayCategories()">
+            <div class="bar__bg"></div>
+            <div class="filter">
+                <button class="action filter__item"
+                        ng-repeat="category in sc.getCategories()"
+                        ng-class="{'filter__item--selected': category.filter === '*'}"
+                        data-filter="{{::category.filter}}">
+                    <span class="action__text">{{::category.name | uppercase}}</span>
+                </button>
+            </div>
+        </div>
+
+        <h2 ng-show="sc.shouldDisplayNoProducts()" class="text-center margin-top-100 margin-bottom-40 coming-soon">
+            {{'SHOP.NO_PRODUCTS' | translate}}
+        </h2>
+
+        <div class="view" itemprop="offers">
+            <section class="grid">
+                <div class="grid__sizer"></div>
+
+                <div class="grid__item {{::product.categorySelector}}"
+                     ng-repeat="product in sc.getProducts()"
+                     ng-class="{'grid__item--size-a': $index % 3 === 0}"
+                     itemscope itemtype="http://schema.org/Offer">
+                    <div class="slider is-loading">
+                        <div class="slider__item" ng-repeat="image in product.images | orderBy : 'position'"
+                             ng-class="{'higher-z-index': $first}"
+                             itemprop="image" content="{{::image.urlResized}}">
+                            <img ng-src="{{::image.url}}" alt="{{::product.name}}" />
+                            <div class="no-display">
+                                <img class="high-resolution" ng-src="{{::image.urlResized}}" alt="{{::product.name}}" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details">
+                        <div class="meta" ng-switch="product.isFree">
+                            <h3 class="meta__title" class="name" itemprop="name">{{::product.name}}</h3>
+                            <span class="meta__brand" bind-html-compile="product.shortDescription" ng-if="product.shortDescription"></span>
+                            <span class="meta__price" ng-switch-when="false" itemprop="price">
+                                {{::product.price}} <span itemprop="priceCurrency">RON</span>&nbsp;
+                                ({{::product.priceEur}} <span itemprop="priceCurrency">EUR</span>)
+                            </span>
+                            <span class="meta__price" ng-switch-when="true">{{::'SHOP.PRODUCT_FREE' | translate}}</span>
+                        </div>
+
+                        <div class="grid__item__actions clearfix">
+                            <button class="pull-right" ng-click="sc.addToBasket(product);">
+                                <span>{{::'TICKETS.ADD_TO_BASKET' | translate}}</span>
+                            </button>
+
+                            <div class="pull-right" ng-show="product.hasOptions();">
+                                <ui-select ng-model="product.selectedOption" class="size-select" search-enabled="false">
+                                    <ui-select-match placeholder="Please select">{{$select.selected.optionName}}</ui-select-match>
+                                    <ui-select-choices repeat="option.optionId as option in product.options">
+                                        <div ng-bind-html="option.optionName"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+</div>

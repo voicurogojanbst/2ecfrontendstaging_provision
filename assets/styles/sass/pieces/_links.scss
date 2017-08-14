@@ -1,0 +1,84 @@
+a.link,
+button.link {
+    text-decoration : none;
+    display         : inline-block;
+    color           : $yellow-base;
+    font-size       : $font-size-base;
+
+    &:active,
+    &:focus,
+    &:hover,
+    &.is-active {
+        color           : $white;
+        text-decoration : none;
+    }
+
+    &--text {
+        color           : $grey-dark;
+        text-decoration : underline;
+
+        &:hover {
+            color           :  $grey-dark;
+            text-decoration : none;
+        }
+    }
+
+    &--large {
+      font-size : $font-size-larger;
+    }
+}
+
+a.call-to-action,
+button.call-to-action {
+    text-decoration  : none;
+    display          : inline-block;
+    background-color : $yellow-base;
+    color            : $grey-dark;
+    font-size        : 18px;
+    padding          : 14px 30px;
+    border           : 1px solid $grey-dark;
+    border-radius    : 0;
+    transition       : all 0.35s ease-out;
+    cursor           : pointer;
+
+    &:active,
+    &:focus,
+    &:hover {
+        text-decoration  : none;
+        background-color : $grey-dark;
+        color            : $yellow-base;
+        outline          : none;
+    }
+
+    &--in-form {
+        font-size     : $font-size-large;
+        padding       : 6px 10px;
+        max-height    : 42px;
+        border        : 0;
+        border-radius : 0;
+    }
+
+    @include breakpoint(xs) {
+        font-size : $font-size-larger;
+    }
+}
+
+a.call-to-action-lg {
+  margin         : 0 10px;
+  text-transform : uppercase;
+  font-size      : 18px;
+  color          : $black;
+  border-radius  : 5px;
+  padding        : 10px 30px;
+  text-align     : center;
+
+  &:hover {
+    color : $yellow-base;
+  }
+
+  @include breakpoint(xs) {
+    margin  : 0 0 10px 0;
+    width   : 100%;
+    display : block;
+  }
+}

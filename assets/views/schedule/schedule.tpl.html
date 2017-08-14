@@ -1,0 +1,39 @@
+<div class="page-container page-container__bg-dark">
+    <div class="container simple-schedule-page">
+        <table class="schedule-table margin-top-50" ng-repeat="day in schc.getMatrix()" ng-if="!schc.flags.displaySimpleVersion">
+            <thead>
+                <tr>
+                    <th class="text-center text-uppercase" colspan="{{day.stages.length + 1}}">Day {{day.name}} - {{'LINE_UP.SCHEDULE.DAY_' + day.name | translate}}</th>
+                </tr>
+
+                <tr>
+                    <th class="time">Start<br />time</th>
+                    <th class="stage-name text-uppercase" ng-repeat="stageName in day.stages">{{stageName}}</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="hourRow in day">
+                    <td class="stage-hour">{{day.hours[$index]}}</td>
+                    <td class="artist" ng-repeat="stageSchedule in hourRow"><strong>{{stageSchedule.artist}}</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <ul class="schedule-day" ng-if="schc.flags.displaySimpleVersion" ng-repeat="(day, artists) in schc.getSimpleSchedule()">
+            <h1 class="text-uppercase">
+                Day {{day}}
+                <sub class="hidden-md hidden-sm">{{'LINE_UP.SCHEDULE.DAY_' + day | translate}}</sub>
+            </h1>
+
+            <li ng-repeat="artist in artists">{{artist.name}}</li>
+        </ul>
+
+        <div class="padding-bottom-50 text-right">
+            <a ui-sref="ElectricCastlePublic.Tickets" class="call-to-action"
+               analytics-on
+               analytics-event="Call to action from Home"
+               analytics-category="Navigation">{{'HOME.TICKETS' | translate}}</a>
+        </div>
+    </div>
+</div>

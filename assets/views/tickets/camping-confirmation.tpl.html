@@ -1,0 +1,43 @@
+<article class="camping-confirmation">
+    <header>
+        <div class="container">
+            <h1 class="text-uppercase">{{'TICKETS_V2.CAMPING_CONFIRMATION.TITLE' | translate}}</h1>
+            <p class="margin-top-20" bind-html-compile="'TICKETS_V2.CAMPING_CONFIRMATION.SUBTITLE' | translate"></p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="premium-camping-add-ons">
+            <h3 class="text-uppercase">{{'TICKETS_V2.PREMIUM_CAMPING_ADD_ONS' | translate}}</h3>
+
+            <ul class="list-unstyled">
+                <li ng-repeat="campingOption in campingOptions">
+                    <figure>
+                        <img ng-src="{{campingOption.thumbnails[0]}}" alt="{{'TICKETS_V2.CAMPING_ADD_ON' | translate}}" />
+                        <figcaption class="text-center">{{::campingOption.name}}</figcaption>
+                    </figure>
+                </li>
+            </ul>
+        </div>
+
+        <div class="margin-bottom-10">
+            <button class="text-uppercase button-confirm"
+                    ng-click="ccc.cb.goToCamping()"
+                    analytics-on
+                    analytics-event="Go to camping"
+                    analytics-category="Tickets new">
+                {{'TICKETS_V2.CAMPING_CONFIRMATION.GO_BACK_TO_CAMPING' | translate}}
+            </button>
+        </div>
+
+        <div>
+            <button class="text-uppercase button-confirm"
+                    ng-click="ccc.cb.finalize()"
+                    analytics-on
+                    analytics-event="Finalize from message"
+                    analytics-category="Tickets new">
+                {{'TICKETS_V2.CAMPING_CONFIRMATION.FINALIZE' | translate}}
+            </button>
+        </div>
+    </div>
+</article>

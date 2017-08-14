@@ -1,0 +1,73 @@
+/**
+ * ====================================================================
+ * COLORS
+ * ====================================================================
+ */
+$black               : rgba(0, 0, 0, 1);
+$black-transp-dark   : rgba(0, 0, 0, 0.9);
+$black-transp        : rgba(0, 0, 0, 0.7);
+$black-transp-medium : rgba(0, 0, 0, 0.5);
+$black-transp-light  : rgba(0, 0, 0, 0.3);
+$white               : rgba(255, 255, 255, 1);
+$white-transp        : rgba(255, 255, 255, 0.7);
+$white-transp-dark   : rgba(255, 255, 255, 0.9);
+$white-transp-medium : rgba(255, 255, 255, 0.5);
+$white-transp-light  : rgba(255, 255, 255, 0.3);
+
+$yellow-base         : rgba(255, 247, 52, 1);
+$yellow-transp-light : rgba(255, 247, 52, 0.6);
+$yellow-transp       : rgba(255, 233, 15, 0.8);
+$yellow-secondary    : rgba(255, 233, 15, 1);
+$yellow-pantone      : rgba(254, 226, 52, 1);
+$yellow-cyber        : rgba(254, 210, 0, 1);
+$yellow-input-transp : rgba(251, 221, 74, 0.6);
+$grey-dark           : #333;
+$grey-darker         : #1d1d1b;
+$grey-cool           : rgba(124, 124, 124, 1);
+$grey-base           : rgba(153, 153, 153, 1);
+$grey-base-transp    : rgba(153, 153, 153, 0.6);
+$grey-base-transp-3  : rgba(153, 153, 153, 0.3);
+$grey-middle         : rgba(119, 119, 119, 1);
+$spanish-grey        : rgba(192, 192, 192, 1);
+$grey-light          : rgb(234, 228, 231);
+$ash-grey            : rgba(217, 218, 215, 1);
+$grey-chad           : rgba(247, 248, 248, 1);
+
+$main-bg    : #444;
+$content-bg : #ccc;
+$light-bg   : #f6f6f6;
+
+$american-rose        : rgba(232, 79, 79, 1);
+$american-rose-transp : rgba(232, 79, 79, 0.85);
+
+$dark-pastel-green : rgba(3, 192, 60, 1);
+
+$sand       : #ffe692;
+$sky        : #8fcaaa;
+$night      : #572480;
+$night-dark : #312d39;
+$orange     : #fe9a34;
+$xmas-red   : #a80007;
+
+$sea-blue  : rgba(30, 50, 60, 1);
+$deep-blue : #092434;
+
+/**
+ * ====================================================================
+ * FONT SIZES
+ * ====================================================================
+ */
+$font-size-small  : 10px;
+$font-size-base   : 14px;
+$font-size-large  : 16px;
+$font-size-larger : 18px;
+$font-size-footer : 14px;
+$font-size-h1     : 50px;
+$font-size-h2     : 36px;
+$font-size-h3     : 28px;
+$font-size-h4     : 16px;
+$font-size-h5     : 15px;
+$font-size-h6     : 14px;
+
+$font-size-h1-mobile : 40px;
+$font-size-h2-mobile : 32px;

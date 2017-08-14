@@ -1,0 +1,16 @@
+<div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"
+     data-backdrop="{{options.backdropDismiss}}"
+     data-keyboard="{{options.useKeyboard}}"
+     ng-switch="modalType">
+
+    <div class="modal-dialog modal-full {{modalType | formatter : 'kebab'}}">
+        <div ng-switch-when="LOGIN" login-modal></div>
+        <div ng-switch-when="REDEEM_CARD" redeem-card-modal></div>
+        <div ng-switch-when="PARTNER_LOCATIONS" partner-locations></div>
+        <div ng-switch-when="HOME_INFO" before-you-come></div>
+        <div ng-switch-when="REFUND" refund></div>
+        <div ng-switch-when="FIRST_LOGIN_THANK_YOU" first-login-thank-you></div>
+        <div ng-switch-when="ADD_EXTERNAL_TICKET" add-external-ticket></div>
+        <div ng-switch-when="TICKET_NAME" ticket-name></div>
+    </div>
+</div>

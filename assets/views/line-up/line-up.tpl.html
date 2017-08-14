@@ -1,0 +1,14 @@
+<div class="line-up" sort-controller>
+    <div class="bar" itemscope itemtype="http://schema.org/Festival">
+        <meta itemprop="name" content="Electric Castle Festival" />
+        <meta itemprop="startDate" content="2016-07-14T10:00"/>
+        <meta itemprop="endDate" content="2016-07-18T08:00"/>
+
+        <div class="container filter">
+            <a ui-sref="ElectricCastlePublic.LineUp.List" class="action filter__item filter__item--selected" data-sort="ranking">List</a>
+            <a ui-sref="ElectricCastlePublic.LineUp.List" class="action filter__item" data-sort="alphabetical">Alphabetical</a>
+        </div>
+    </div>
+
+    <div class="container" ui-view="line-up-content" itemprop="performers"></div>
+</div>

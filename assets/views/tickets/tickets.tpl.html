@@ -1,0 +1,117 @@
+<div class="page-container page-container__bg">
+    <div ng-show="tc.tickets.length > 0" ng-class="{'noHeader': tc.noHeader}">
+        <tickets-info-bar></tickets-info-bar>
+
+        <div class="container tickets-page margin-top-20" itemprop="offers">
+            <section ng-repeat="ticketGroup in tc.tickets" class="ticket-group">
+                <!--<h2 class="tag-line text-grey-dark margin-bottom-30">
+                   {{'TICKETS.SECTION.HEADING' | translate: {ticketType: ticketGroup.ticketTypeText} }}
+                </h2>-->
+
+                <!--<p class="margin-bottom-30 hidden-xs"
+                   ng-show="tc.shouldNestHardCopyMessage($index)"
+                   bind-html-compile="'TICKETS.LOCATIONS' | translate: {callback: 'tc.openPartnerLocations();'}"></p>-->
+
+                <div class="ticket-group__item row flex flex-v-center" itemscope itemtype="http://schema.org/Offer"
+                     ng-repeat="ticket in ticketGroup.tickets"
+                     ng-show="ticket.isVisible"
+                     ng-class="{'SOLD_OUT': 'text-grey'}[ticket.status]">
+
+                    <div class="left flex flex-v-center col-md-3">
+                        <div class="top">&nbsp;</div>
+                        <h2 class="text-center center-block">
+                            {{::ticket.name}}
+                        </h2>
+                        <div class="bottom">&nbsp;</div>
+                    </div>
+
+                    <div class="col-md-9 right flex flex-space-between flex-v-center">
+                        <div class="desc-wrap">
+                            <div class="ticket-group__item__description"
+                                 bind-html-compile="ticket.shortDescription"
+                                 ng-class="{'SOLD_OUT': 'text-grey'}[ticket.status]">
+                            </div>
+                        </div>
+                        <div>
+                            <div ng-switch="ticket.showPriceTBA" class="ticket-group__item__price">
+                                <span ng-switch-when="false" itemprop="price" class="text-grey-base">
+                                    {{::ticket.price}} <span itemprop="priceCurrency">Lei</span>
+                                </span>
+                                <span ng-switch-when="true" class="text-grey-base">
+                                    {{'TICKETS.PRICE_TBA' | translate}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="text-right" ng-switch="ticket.status">
+                            <select selectpicker name="quantity-{{$parent.$index}}-{{$index}}"
+                                    ng-switch-when="AVAILABLE"
+                                    ng-model="ticket.quantity"
+                                    ng-change="tc.onProductAdded(ticket)">
+                                <option value="0">{{'TICKETS.SECTION.NOTHING_SELECTED' | translate}}</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+
+                            <a class="pull-right button button--dark button--small button--has-border button--has-bg--yellow" ui-sref="ElectricCastlePublic.Login"
+                               ng-switch-when="ONLY_FOR_REGISTERED" ng-bind-html="'TICKETS.ONLY_FOR_REGISTERED' | translate"></a>
+
+                            <span class="ticket-group__item__sold-out" ng-switch-when="SOLD_OUT">
+                                {{'TICKETS.SOLD_OUT' | translate}}
+                            </span>
+
+                            <span class="ticket-group__item__sold-out" ng-switch-when="COMING_SOON">
+                                {{'TICKETS.COMING_SOON' | translate}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="tickets-controls">
+            <!--<h4 class="text-center camping-note" ng-hide="tc.flags.hasSelectedCamping">
+                <label class="checkbox-inline" for="no-camping">
+                    <input type="checkbox" id="no-camping" ng-model="tc.flags.noCamping" />
+                    <span></span>
+                    &nbsp;{{'TICKETS.CONTROLS.NO_CAMPING' | translate}}
+                </label>
+            </h4>-->
+
+            <!--<h4 class="text-center camping-warning animated slideInDown" ng-show="tc.flags.noCamping">
+                {{'TICKETS.CONTROLS.CAMPING_WARNING' | translate}}
+            </h4>-->
+
+            <div class="text-center">
+                <a href="javascript:void(0)"
+                   ng-show="tc.info.hasTickets()"
+                   ng-click="tc.finalizeShopping()"
+                   class="call-to-action"
+                   analytics-on
+                   analytics-event="Finalize tickets"
+                   analytics-category="Shop">
+                    {{'TICKETS.CONTROLS.FINALIZE' | translate}}
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div ng-show="tc.tickets.length === 0" class="no-tickets">
+        <h2 class="tag-line text-center margin-bottom-50 margin-top-100 soon">
+            {{'TICKETS.COMING_SOON' | translate}}
+        </h2>
+        <p class="text-center"><a ui-sref="ElectricCastlePublic.TicketsInfo">Read more info</a></p>
+
+        <div ng-switch="tc.flags.hasConcurrencyError">
+            <h2 ng-switch-when="false" class="tag-line text-center text-yellow-secondary margin-bottom-50">
+                {{'TICKETS.COMING_SOON' | translate}}
+            </h2>
+            <h2 ng-switch-when="true" class="concurrency-error tag-line text-center text-info margin-bottom-50"
+                translate="{{'TICKETS.TRY_AGAIN_LATER'}}">
+            </h2>
+        </div>
+    </div>
+</div>

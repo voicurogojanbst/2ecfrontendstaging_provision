@@ -1,0 +1,72 @@
+<div class="line-up-tab-content" artist-grid="lc.get()">
+    <div class="view">
+        <section class="grid artists-container">
+            <div class="grid__sizer"></div>
+
+            <div class="grid__item artist" itemscope itemtype="http://schema.org/MusicGroup"
+                 ng-repeat="artist in lc.get()"
+                 data-sort="{{artist.ranking}}"
+                 data-name="{{artist.name | lowercase}}"
+                 ng-class="{'grid__item--size-a': true}">
+                <h3 class="artist-name" itemprop="name">{{artist.name}}</h3>
+
+                <img ng-src="{{artist.image}}" alt="{{artist.name}}" class="img-responsive center-block" image-fallback="LINE_UP_ARTIST_IMAGE" />
+
+                <ul class="social-links">
+                    <li class="text-center" ng-if="artist.websiteUrl">
+                        <a itemprop="sameAs" content="{{artist.websiteUrl}}" href="{{artist.websiteUrl}}" target="_blank">
+                            <img src="/assets/img/line-up/website.png" alt="Artist website" />
+                        </a>
+                    </li>
+                    <li class="text-center" ng-if="artist.facebookUrl">
+                        <a itemprop="sameAs" content="{{artist.facebookUrl}}" href="{{artist.facebookUrl}}" target="_blank">
+                            <img src="/assets/img/line-up/facebook.png" alt="Artist facebook" />
+                        </a>
+                    </li>
+                    <li class="text-center" ng-if="artist.twitterUrl">
+                        <a itemprop="sameAs" content="{{artist.twitterUrl}}" href="{{artist.twitterUrl}}" target="_blank">
+                            <img src="/assets/img/line-up/twitter.png" alt="Artist twitter" />
+                        </a>
+                    </li>
+                    <li class="text-center" ng-if="artist.instagramUrl">
+                        <a itemprop="sameAs" content="{{artist.instagramUrl}}" href="{{artist.instagramUrl}}" target="_blank">
+                            <img src="/assets/img/line-up/instagram.png" alt="Artist instagram" />
+                        </a>
+                    </li>
+                    <li class="text-center vertical-align" ng-if="artist.youtubeUrl">
+                        <a itemprop="sameAs" content="{{artist.youtubeUrl}}" href="{{artist.youtubeUrl}}" target="_blank">
+                            <img src="/assets/img/line-up/youtube.png" alt="Artist youtube channel" />
+                        </a>
+                    </li>
+                </ul>
+
+                <img ng-if="artist.taglineImage" ng-src="{{artist.taglineImage}}" class="img-responsive artist-tag-line" />
+
+                <section class="artist-schedule" ng-if="artist.schedule">
+                    <div ng-repeat="entry in artist.schedule">
+                        <div class="pull-left info">
+                            <span class="text-light">{{'LINE_UP.SCHEDULE.DAY' | translate}}:&nbsp;</span>
+                            <span class="text-uppercase text-yellow-base">{{entry.day}}&nbsp;</span>
+
+                            <span class="text-light">{{'LINE_UP.SCHEDULE.HOUR' | translate}}:&nbsp;</span>
+                            <span class="text-yellow-base">{{entry.hour}}&nbsp;</span><br />
+
+                            <span class="text-light">{{'LINE_UP.SCHEDULE.STAGE' | translate}}:&nbsp;</span>
+                            <span class="text-uppercase text-yellow-base">{{entry.stage}}&nbsp;</span>
+                        </div>
+                        <div class="pull-right">
+                            <!--<a href="/schedule?day={{entry.day}}" title="See full schedule" class="add-to-my-schedule">
+                                <img src="/assets/img/line-up/view-schedule.png" alt="Add to schedule" />
+                            </a>-->
+
+                            <a ui-sref="ElectricCastlePublic.NewSchedule" title="See full schedule" class="add-to-my-schedule">
+                                <img src="/assets/img/line-up/view-schedule.png" alt="Go to schedule" />
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </section>
+    </div>
+</div>

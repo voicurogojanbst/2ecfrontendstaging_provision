@@ -1,0 +1,1507 @@
+.tickets-redesign {
+    ul {
+      padding-left : 0;
+      list-style   : none;
+      color        : #707070;
+
+      li {
+        line-height   : 16px;
+        margin-bottom : 15px;
+        font-family   : RobotoCondensed-Regular, Arial, Helvetica, sans-serif;
+      }
+    }
+
+    padding-top : 20px;
+
+    @include breakpoint(xs) {
+      padding-top : 75px;
+    }
+
+    .page {
+        &__title {
+            color       : $grey-base;
+            padding     : 0 10px;
+            margin      : 0 0 8px 0;
+            font-size   : 40px;
+            font-family : 'SteelfishBold', Helvetica, Arial, sans-serif;
+
+          @include breakpoint(xs) {
+            margin-top : 40px;
+            font-size  : 40px;
+          }
+        }
+
+        &__footer {
+            margin : 30px 10px;
+
+            .button {
+                background-color : $yellow-base;
+                padding          : 20px;
+                font-family      : RobotoCondensed-Bold, Helvetica, Arial, sans-serif;
+
+                color : #333;
+
+                &:hover {
+                  background : $yellow-secondary;
+                }
+
+                &:disabled {
+                  color      : $grey-base-transp;
+                  background : $yellow-base;
+                  cursor     : not-allowed;
+                }
+            }
+        }
+    }
+
+    .tickets {
+        &__special-link {
+            margin     : 10px;
+            flex       : 1;
+            display    : block;
+            cursor     : pointer;
+            color      : $grey-middle;
+            background : transparent;
+            text-align : center;
+            border     : 8px solid $grey-light;
+
+            text-decoration : none;
+            text-transform  : uppercase;
+            font-family     : 'SteelfishBold', Helvetica, Arial, sans-serif;
+            font-size       : 36px;
+            line-height     : 60px;
+
+            &:hover {
+              color  : $grey-dark;
+              cursor : pointer;
+            }
+
+            @include breakpoint(xs) {
+              margin       : 0 10px 10px 0;
+              border-width : 5px;
+              font-size    : 24px;
+              line-height  : 48px;
+
+              &:last-of-type {
+                margin-right : 0;
+              }
+            }
+
+            @include breakpoint(xxs) {
+              font-size : 20px;
+            }
+        }
+
+        &__banner-sold-out {
+          padding  : 0 15px;
+          position : relative;
+
+          @include breakpoint(xs) {
+            padding : 0;
+          }
+
+          h2 {
+            border-top    : 1px solid #979797;
+            border-bottom : 1px solid #979797;
+
+            text-align     : center;
+            text-transform : none;
+            line-height    : 160px;
+            color          : #666;
+            font-family    : 'SteelfishBold', Helvetica, Arial, sans-serif;
+
+            @include breakpoint(xs) {
+              line-height : 90px;
+            }
+
+            span.ga {
+              position : relative;
+              z-index  : 2;
+            }
+
+            span.sold {
+              color          : $yellow-base;
+              font-family    : 'RobotoBold', Arial, sans-serif;
+              text-transform : uppercase;
+              font-size      : 140px;
+
+              position : absolute;
+              display  : block;
+              width    : 100%;
+              left     : 0;
+              top      : 0;
+              z-index  : 1;
+
+              @include breakpoint(xs) {
+                font-size : 60px;
+              }
+            }
+          }
+
+          p {
+            font-size      : 16px;
+            text-transform : uppercase;
+            text-align     : center;
+
+            @include breakpoint(xs) {
+              font-size : 14px;
+            }
+          }
+        }
+
+        &__content {
+            flex-wrap : wrap;
+
+            @include breakpoint(xs) {
+              flex-direction : column;
+              display: block;
+            }
+        }
+
+        &__item {
+            margin          : 10px;
+            flex-direction  : column;
+            justify-content : space-between;
+
+            background-color : $white;
+            box-shadow       : 0 2px 3px 0 rgba(0, 0, 0, 0.05);
+
+            position : relative;
+
+            hr {
+              margin  : -19px 0 10px 0;
+              width   : 140px;
+
+              border-top-color : $grey-dark;
+            }
+
+            @include breakpoint(xs) {
+              margin  : 0 0 10px 0;
+              display : block;
+            }
+
+            &__header {
+                padding : 15px 20px 5px;
+
+                @include breakpoint(xs) {
+                    padding : 10px 15px 5px;
+                }
+            }
+
+            &__content {
+                padding : 0 20px 5px;
+
+                @include breakpoint(xs) {
+                    padding : 0 15px;
+                }
+            }
+
+            &__footer {
+                flex-wrap  : wrap;
+                position   : relative;
+                padding    : 15px 20px 20px 20px;
+                margin     : 0;
+                background : #f8f8f0;
+
+                p {
+                  font-family : RobotoCondensed-Regular, Arial, Helvetica, sans-serif;
+                  font-weight : normal;
+                  font-size   : 14px;
+                  line-height : 16px;
+                  margin-top  : 15px;
+                  color       : $grey-dark;
+
+                  strong {
+                    font-family   : 'SteelfishBold', Helvetica, Arial, sans-serif;
+                    font-size     : 36px;
+                    line-height   : 36px;
+                    margin-bottom : 3px;
+                    display       : block;
+                    font-weight   : normal;
+
+                    @include breakpoint(xs) {
+                      font-size   : 28px;
+                      line-height : 28px  ;
+                    }
+                  }
+
+                  @include  breakpoint(sm) {
+                    font-size   : 18px;
+                    line-height : 20px;
+                  }
+
+                  @include  breakpoint(xs) {
+                    font-size     : 14px;
+                    line-height   : 16px;
+                    margin-bottom : 10px;
+                  }
+                }
+
+                @include  breakpoint(sm) {
+                  padding   : 20px;
+                  flex-wrap : nowrap;
+                }
+
+                @include breakpoint(xs) {
+                    padding : 15px;
+                }
+            }
+
+            &__title {
+                font-family    : 'SteelfishBold', Helvetica, Arial, sans-serif;
+                font-size      : 36px;
+                margin         : 0;
+                color          : #333;
+
+                @include breakpoint(xs) {
+                  font-size      : 30px;
+                  letter-spacing : 0;
+                }
+            }
+
+            &__price {
+                font-family  : 'SteelfishBold', Helvetica, Arial, sans-serif;
+                font-size    : 36px;
+                line-height  : 40px;
+                color        : $grey-dark;
+                margin       : 0 0 10px 0;
+
+                @include breakpoint(xs) {
+                  font-size   : 28px;
+                  line-height : 28px  ;
+                }
+
+                span {
+                  font-size   : 16px;
+                  font-weight : normal;
+                  font-family : 'Roboto', Helvetica, Arial, sans-serif;
+                }
+
+                strike {
+                  font-size     : 24px;
+                  opacity       : 0.8;
+                  padding-left  : 10px;
+                  color         : $xmas-red;
+
+                  font-family  : Steelfish, Helvetica, Arial, sans-serif;
+
+                  @include breakpoint(xs) {
+                    font-size : 20px;
+                  }
+                }
+            }
+
+            &__or {
+              color            : $grey-dark;
+              background-color : #f8f8f0;
+              padding          : 0 5px;
+              font-size        : 14px;
+              display          : inline-block;
+              position         : relative;
+              z-index          : 1;
+              margin-left      : 60px;
+              top              : -10px;
+              font-family      : 'RobotoCondensed-Regular', Helvetica, Arial, sans-serif;
+            }
+
+            &__number {
+              .form-control {
+                line-height : 30px;
+                font-size   : 20px;
+                font-family : 'RobotoBold', Helvetica, Arial, sans-serif;
+                color       : #333;
+                border      : none;
+                padding     : 9px 10px;
+                box-shadow  : none;
+
+                background-color : $white;
+              }
+
+              .picker-unit-right {
+                margin-left : 5px;
+              }
+
+              .input-group {
+                height     : 50px;
+                background : $white;
+                padding    : 0 30px;
+                position   : relative;
+                min-width  : 117px;
+                text-align : center;
+                border     : 1px solid $grey-dark;
+              }
+
+              .input-group-addon {
+                font-size     : 15px;
+                font-family   : Consolas, Courier, monospace;
+                width         : 18px;
+                font-weight   : bold;
+                padding       : 1px 0 2px;
+                color         : $white;
+                text-align    : center;
+                border        : none;
+                border-radius : 9px;
+                cursor        : pointer;
+                position      : absolute;
+                display       : inline-block;
+
+                background-color : #333;
+
+                top : 16px;
+
+                &:first-child {
+                  left : 10px;
+                }
+
+                &:last-child {
+                  right : 10px;
+                }
+
+                &:hover {
+                  opacity : 0.8;
+                }
+              }
+            }
+
+            &__select {
+              background  : #fff733;
+              color       : $grey-dark;
+              border      : 1px solid $grey-dark;
+              height      : 50px;
+              line-height : 50px;
+              padding     : 0;
+              min-width   : 265px;
+              font-size   : 14px;
+              font-weight : normal;
+
+              font-family    : 'RobotoCondensed-Bold', Helvetica, Arial, sans-serif;
+              text-transform : uppercase;
+
+              &:hover {
+                background-color : $yellow-secondary;
+              }
+
+              &:disabled {
+                color      : #999;
+                background : #fff733;
+                cursor     : not-allowed;
+              }
+
+              @include breakpoint(sm) {
+                min-width : 150px;
+              }
+
+              @include breakpoint(xs) {
+                min-width : 120px;
+              }
+            }
+
+            &__description {
+              font-family : RobotoCondensed-Regular, Arial, Helvetica, sans-serif;
+
+              img {
+                border        : 1px solid #ccc;
+                border-radius : 2px;
+                margin        : 0 10px 0 0;
+                padding       : 7px;
+                height        : 36px;
+              }
+            }
+
+            &--half-width {
+                flex-basis : calc(50% - 2 * 10px);
+            }
+
+            &--full-width {
+                flex-basis : 100%;
+            }
+
+            &--a-quarter {
+                flex-basis : calc(33.33% - 2 * 10px);
+
+                /*.tickets__item__price {
+                  font-size : 30px;
+
+                  strike {
+                    padding-left : 0;
+                  }
+                }
+
+                .tickets__item__title {
+                  line-height   : 30px;
+                  font-size     : 30px;
+                  margin-bottom : 15px;
+                }
+
+                .tickets__item__header,
+                .tickets__item__content {
+                  padding-left  : 15px;
+                  padding-right : 15px;
+                }
+
+                .tickets__item__footer {
+                  padding-left  : 12px;
+                  padding-right : 12px;
+                }*/
+
+                .controls {
+                  /*flex-direction : column;
+                  align-items    : flex-start;
+
+                  .tickets__item__select {
+                    min-width  : 100%;
+                    margin-top : 10px;
+                  }
+
+                  .tickets__item__number .input-group {
+                    min-width : 144px;
+                  }*/
+
+                  /*@include breakpoint(sm) {*/
+                    flex-direction : row;
+
+                    .tickets__item__select {
+                      min-width  : 120px;
+                      margin-top : 0;
+                    }
+
+                    .tickets__item__number .input-group {
+                      min-width : 117px;
+                    }
+                 /* }*/
+                }
+
+               ul li {
+                 margin-bottom : 10px;
+               }
+
+              @include breakpoint(sm) {
+                flex-basis : calc(50% - 2 * 10px);
+              }
+            }
+
+            &--full-width,
+            &--full-width,
+            &--a-quarter {
+                @include breakpoint(xs) {
+                  flex-basis : 100%;
+                }
+            }
+
+            &--is-vip {
+                position : relative;
+
+                &::after {
+                    content         : '';
+                    background      : url('/assets/img/redesign/svg/icon-ribbon-vipstar.svg') top center;
+                    background-size : 50px 70px;
+                    width           : 50px;
+                    height          : 70px;
+                    position        : absolute;
+                    top             : 0;
+                    right           : -5px;
+
+                    transform : translateX(-15px);
+
+                    @include breakpoint(xs) {
+                      display : none;
+                    }
+                }
+            }
+
+            &--is-one-day {
+                /*&::before {
+                    content    : '';
+                    background : url('/assets/img/tickets/one-day.png') top center;
+                    width      : 50px;
+                    height     : 70px;
+                    position   : absolute;
+                    top        : 0;
+                    right      : 50px;
+                    transform  : translateX(-15px);
+
+                    @include breakpoint(xs) {
+                      display : none;
+                    }
+                }*/
+            }
+
+            &--is-camping {
+              position : relative;
+
+              &::before {
+                content         : '';
+                background      : url('/assets/img/redesign/svg/icon-ribbon-camping.svg') top center;
+                background-size : 50px 70px;
+                width           : 50px;
+                height          : 70px;
+                position        : absolute;
+                top             : 0;
+                right           : 50px;
+
+                transform : translateX(-15px);
+
+                @include breakpoint(xs) {
+                  display : none;
+                }
+              }
+            }
+
+            &--is-special {
+                flex-direction   : row;
+                justify-content  : space-between;
+                background-color : $grey-dark;
+                color            : $white;
+
+                h4 {
+                    color          : $white;
+                    margin-top     : 0;
+                    text-transform : none;
+                    font-size      : 15px;
+                    line-height    : 15px;
+                    margin-bottom  : 20px;
+                    font-family    : RobotoCondensed-Regular, Arial, Helvetica, sans-serif;
+                }
+
+                hr {
+                  border-top-color : #fff733;
+                  margin           : -9px 0 15px 0;
+                  width            : 140px;
+                }
+
+                ul {
+                  color         : $white-transp;
+                  margin-bottom : 15px;
+
+                  li {
+                    margin-bottom : 5px;
+                  }
+                }
+
+                @include breakpoint(xs) {
+                    flex-direction : column;
+                }
+
+                .tickets__item {
+                    &__header {
+                      padding-bottom : 0;
+                    }
+
+                    &__footer {
+                        padding    : 20px;
+                        min-width  : calc(50% - 30px);
+                        max-width  : calc(50% - 30px);
+                        background : #333;
+
+                        display         : flex;
+                        flex-direction  : column;
+                        justify-content : flex-end;
+
+                        p {
+                          color         : #fff733;
+                          margin-bottom : 20px;
+                        }
+
+                        @include breakpoint(sm) {
+                          padding : 20px;
+                        }
+
+                        @include breakpoint(xs) {
+                            padding   : 15px;
+                            max-width : 100%;
+                            min-width :   0;
+                        }
+                    }
+
+                    &__title,
+                    &__description,
+                    &__or,
+                    &__price {
+                        color : $white;
+
+                        p {
+                          color : $white;
+                        }
+                    }
+
+                    &__or,
+                    &__price {
+                      color            : #fff733;
+                      background-color : $grey-dark;
+                    }
+
+                    &__or {
+                      width : 20px;
+                      top   : 0;
+                    }
+
+                    &__select {
+                      background : #fff733;
+                      color      : $grey-dark;
+
+                      &:hover {
+                        background-color : $yellow-secondary;
+                      }
+                    }
+                }
+            }
+
+          &--is-xmas {
+            flex-direction    : column;
+            justify-content   : space-between;
+            background-color  : $xmas-red;
+            background-image  : url('/assets/img/tickets/xmas-text.png'), url('/assets/img/tickets/xmas-bg.png');
+            background-repeat : no-repeat, no-repeat;
+            background-size   : auto, cover;
+            color             : $white;
+            padding           : 30px;
+
+            @include breakpoint(sm) {
+              background-size     : 55%, cover;
+              background-position : center left;
+              padding             : 20px;
+            }
+
+            @include breakpoint(xs) {
+              background-size     : 300px, cover;
+              background-position : top right;
+              padding             : 200px 15px 15px 15px;
+            }
+
+            h4 {
+              color          : $white;
+              margin-top     : 0;
+              text-transform : none;
+              font-size      : 16px;
+              line-height    : 16px;
+              margin-bottom  : 15px;
+              padding        : 10px 26px 10px 0;
+              display        : inline-block;
+              font-family    : RobotoCondensed-Regular, Arial, Helvetica, sans-serif;
+              border-top     : 1px solid $white;
+              border-bottom  : 1px solid $white;
+            }
+
+            hr {
+              display : none;
+            }
+
+            ul {
+              color : $white-transp;
+            }
+
+            @include breakpoint(xs) {
+              flex-direction : column;
+            }
+
+            .tickets__item {
+              &__footer {
+                padding      : 0;
+                padding-left : calc(50% + 40px);
+                background   : none;
+
+                p {
+                  display : none;
+                }
+
+                @include breakpoint(sm) {
+                  padding-left : calc(50% + 30px);
+                }
+
+                @include breakpoint(xs) {
+                  padding : 0;
+                }
+              }
+
+              &__header {
+                padding-top : 0;
+
+                @include breakpoint(xs) {
+                  padding : 0 0 10px 0;
+                }
+              }
+
+              &__content {
+                padding-bottom : 5px;
+
+                @include breakpoint(xs) {
+                  padding : 0;
+                }
+              }
+
+              &__title,
+              &__description,
+              &__price {
+                color : $white;
+
+                p {
+                  color         : $white;
+                  padding-right : 20px;
+
+                  @include breakpoint(xs) {
+                    padding-right : 0;
+                  }
+
+                  &.info {
+                    padding-left  : 38px;
+                    padding-right : 0;
+                    background    : url('/assets/img/tickets/icon-info.png') left center no-repeat;
+
+                    @include breakpoint(xs) {
+                    }
+                  }
+                }
+              }
+
+              &__title {
+                padding-left : calc(50% + 40px);
+
+                @include breakpoint(sm) {
+                  padding-left : calc(50% + 30px);
+                }
+
+                @include breakpoint(xs) {
+                  padding : 0;
+                }
+              }
+
+              &__description {
+                padding-left : calc(50% + 40px);
+
+                @include breakpoint(sm) {
+                  padding-left : calc(50% + 30px);
+                }
+
+                @include breakpoint(xs) {
+                  padding : 0;
+                }
+              }
+
+              &__or {
+                display : none;
+              }
+
+              &__price {
+                margin-top : 30px;
+
+                @include breakpoint(xs) {
+                  margin-top : 15px;
+                }
+              }
+
+              &__select {
+                background : #fff733;
+                color      : $grey-dark;
+
+                &:hover {
+                  background-color : $yellow-secondary;
+                }
+              }
+            }
+          }
+
+          &.item-sold-out {
+            .tickets__item__title,
+            .tickets__item__price {
+              color : #777;
+            }
+          }
+
+          .sold-out {
+            position : absolute;
+            top      : 10px;
+            right    : 10px;
+
+            @include breakpoint(sm) {
+              right   : 10px;
+              left    : auto;
+              z-index : 3;
+            }
+          }
+        }
+    }
+
+    .ui-select-container {
+        max-width : 180px;
+
+        .ui-select-match-text span {
+            vertical-align : middle;
+        }
+
+        .ui-select-match .ui-select-toggle {
+            background-color : $white;
+            border           : 0;
+            padding          : 7px 25px 7px 10px;
+            height           : 50px;
+            line-height      : 34px;
+            font-size        : 14px;
+            box-shadow       : none;
+            min-width        : 180px;
+        }
+    }
+
+    .accomodation {
+        position       : relative;
+        padding-bottom : 10px;
+        margin-top     : 10px;
+
+        ul li {
+          margin-bottom : 10px;
+        }
+
+        hr {
+          margin  : -9px 0 12px 0;
+          width   : 140px;
+
+          border-top-color : $grey-base;
+        }
+
+        &__bg {
+            margin-left  : calc(50% - 50vw);
+            margin-right : calc(50% - 50vw);
+
+            position  : absolute;
+            width     : 100vw;
+            height    : 100%;
+            top       : 0;
+            bottom    : 0;
+
+            background-color : $grey-chad;
+            z-index : 0;
+        }
+
+        &__header {
+            padding     : 18px 20px 20px 70px;
+            margin      : 0 10px;
+            position    : relative;
+            text-align  : left;
+
+            @include breakpoint(xs) {
+                padding : 10px 10px 10px 60px;
+                margin  : 0;
+            }
+
+            &::before {
+                content         : '';
+                background      : url('/assets/img/redesign/svg/icon-ribbon-tent.svg');
+                background-size : 50px 70px;
+                width           : 50px;
+                height          : 70px;
+                position        : absolute;
+                top             : 0;
+                left            : 0;
+
+                @include breakpoint(xs) {
+                  background-size : 40px 60px;
+                  width           : 40px;
+                  height          : 60px;
+                }
+            }
+
+            &__title,
+            &__subtitle {
+                font-family   : 'RobotoCondensed-Regular', Helvetica, Arial, sans-serif;
+                font-size     : 14px;
+                margin-bottom : 0;
+                color         : $grey-dark;
+            }
+        }
+
+        &__item {
+            margin     : 10px;
+            flex-basis : 100%;
+            position   : relative;
+
+            background-color : $white;
+            border           : solid 1px #eeeeee;
+
+            @include breakpoint(xs) {
+                flex-direction : column;
+                margin         : 10px 0;
+            }
+
+            &__header {
+            }
+
+            &__content {
+                padding   : 20px;
+                max-width : 400px;
+
+                @include breakpoint(sm) {
+                  max-width : 430px;
+                  min-width : 430px;
+                }
+
+                @include breakpoint(xs) {
+                    padding   : 15px;
+                    min-width : 0;
+                }
+            }
+
+            &__capacity {
+              position  : absolute;
+              bottom    : 20px;
+              left      : 50px;
+              width     : 150px;
+              height    : 30px;
+              opacity   : 0.9;
+              color     : $white;
+              font-size : 15px;
+
+              line-height      : 30px;
+              text-align       : center;
+              border-radius    : 100px;
+              background-color : #333333;
+              font-family      : RobotoCondensed-Regular, Arial, Helvetica, sans-serif;
+
+              @include breakpoint(sm) {
+                bottom : 30px;
+                right  : 280px;
+                left   : auto;
+              }
+
+              @include breakpoint(xs) {
+                top  : 10px;
+                left : 10px;
+              }
+            }
+
+            &__image {
+                width      : 100%;
+                flex-grow  : 1;
+                max-width  : 260px;
+                max-height : 234px;
+
+                @include breakpoint(xs) {
+                  max-width  : 100%;
+                  max-height : 100%;
+                }
+            }
+
+            &__footer {
+                padding        : 15px 20px 15px 0;
+                flex-direction : column;
+                width          : 100%;
+                flex           : 1;
+                min-width      : 250px;
+
+                p {
+                  font-family   : RobotoCondensed-Regular, Arial, Helvetica, sans-serif;
+                  font-weight   : normal;
+                  font-size     : 14px;
+                  line-height   : 16px;
+                  margin-top    : 5px;
+                  margin-bottom : 20px;
+                  color         : $grey-dark;
+
+                  strong {
+                    font-family   : 'SteelfishBold', Helvetica, Arial, sans-serif;
+                    font-size     : 36px;
+                    line-height   : 36px;
+                    margin-bottom : 3px;
+                    display       : block;
+                    font-weight   : normal;
+
+                    @include breakpoint(xs) {
+                      font-size   : 28px;
+                      line-height : 28px;
+                    }
+                  }
+                }
+
+                .number-of-items-select {
+                  width     : 100%;
+                  max-width : 100%;
+                }
+
+                @include breakpoint(xs) {
+                    padding        : 0 15px 15px 15px;
+                    flex-direction : column;
+                }
+            }
+
+            &__title {
+                font-family : 'SteelfishBold', Helvetica, Arial, sans-serif;
+                font-size   : 36px;
+                margin-top  : 0;
+                color       : #333;
+
+                @include  breakpoint(xs) {
+                  font-size : 30px;
+                }
+            }
+
+            &__or {
+              color            : $grey-dark;
+              background-color : $white;
+              margin-left      : 60px;
+              font-size        : 14px;
+              width            : 25px;
+              text-align       : center;
+              position         : relative;
+              z-index          : 1;
+              font-family      : 'RobotoCondensed-Regular', Helvetica, Arial, sans-serif;
+            }
+
+            &__description {
+                font-family : 'Roboto', Helvetica, Arial, sans-serif;
+                color       : #666666;
+
+                img {
+                  margin : 0 8px 0 0;
+                  height : 50px;
+                  cursor : pointer;
+                  border : 2px solid #eee;
+
+                  &:last-child {
+                    margin-right : 0;
+                  }
+                }
+
+                .camping-image-container {
+                  position : absolute;
+                  bottom   : 12px;
+
+                  @include breakpoint(sm) {
+                    position : static;
+                  }
+
+                  @include breakpoint(xs) {
+                    position : static;
+                  }
+                }
+            }
+
+            &__price {
+                font-family  : 'SteelfishBold', Helvetica, Arial, sans-serif;
+                font-size    : 36px;
+                line-height  : 40px;
+                color        : $grey-dark;
+                margin       : 0 0 10px 0;
+
+                @include breakpoint(xs) {
+                  font-size   : 28px;
+                  line-height : 28px  ;
+                }
+            }
+
+            &__number {
+              .form-control {
+                line-height : 20px;
+                font-size   : 20px;
+                font-family : 'RobotoBold', Helvetica, Arial, sans-serif;
+                color       : #333;
+                border      : none;
+                padding     : 14px 10px 0 10px;
+                box-shadow  : none;
+
+                background-color : $white;
+              }
+
+              .picker-unit-right {
+                margin-left : 5px;
+              }
+
+              .input-group {
+                height     : 50px;
+                background : $white;
+                padding    : 0 30px;
+                position   : relative;
+                min-width  : 117px;
+                border     : 1px solid $grey-dark;
+                text-align : center;
+
+                @include breakpoint(xs) {
+                }
+              }
+
+              .input-group-addon {
+                font-size     : 15px;
+                font-family   : Consolas, Courier, monospace;
+                width         : 18px;
+                font-weight   : bold;
+                padding       : 1px 0 2px;
+                color         : $white;
+                text-align    : center;
+                border        : none;
+                border-radius : 9px;
+                cursor        : pointer;
+                position      : absolute;
+                display       : inline-block;
+
+                background-color : #333;
+
+                top : 16px;
+
+                &:first-child {
+                  left : 10px;
+                }
+
+                &:last-child {
+                  right : 10px;
+                }
+
+                &:hover {
+                  opacity : 0.8;
+                }
+              }
+            }
+
+            &__select {
+                background  : #333;
+                color       : $white;
+                border      : 1px solid $grey-dark;
+                height      : 50px;
+                line-height : 50px;
+                padding     : 0;
+                min-width   : 120px;
+                font-size   : 14px;
+                font-weight : normal;
+
+                font-family    : 'RobotoCondensed-Bold', Helvetica, Arial, sans-serif;
+                text-transform : uppercase;
+
+                &:hover {
+                  background-color : #111;
+                }
+
+                &:disabled {
+                  color      : #999;
+                  background : #333;
+                  cursor     : not-allowed;
+                }
+            }
+
+            &.item-sold-out {
+              .accomodation__item__title,
+              .accomodation__item__price {
+                color : #777;
+              }
+            }
+
+            .sold-out {
+              position : absolute;
+              top      : 10px;
+              left     : 10px;
+
+              @include breakpoint(sm) {
+                right : 10px;
+                left  : auto;
+              }
+            }
+        }
+    }
+
+    .goodie {
+        .ui-select-container  {
+            width     : 50%;
+            max-width : none;
+
+            @include breakpoint(sm) {
+              width: auto;
+            }
+
+            &:first-child {
+                margin-right : 8px;
+            }
+
+            .ui-select-match .ui-select-toggle {
+                border      : 1px solid $grey-dark;
+                min-width   : 110px;
+                height      : 44px;
+                line-height : 24px;
+                font-size   : 20px;
+                font-family : 'RobotoBold', Helvetica, Arial, sans-serif;
+                color       : $grey-dark
+            }
+        }
+
+        &__container {
+            padding-top : 0;
+
+            @include breakpoint(xs) {
+                flex-direction : column;
+                margin         : 0;
+                display        : block;
+            }
+        }
+
+        &__header {
+          padding     : 18px 20px 20px 70px;
+          margin      : 0 10px 10px 10px;
+          position    : relative;
+          text-align  : left;
+
+          @include breakpoint(xs) {
+            padding : 10px 10px 10px 60px;
+            margin  : 0;
+          }
+
+          &::before {
+            content         : '';
+            background      : url('/assets/img/tickets/icon-tshirt-badge.png');
+            background-size : 50px 70px;
+            width           : 50px;
+            height          : 70px;
+            position        : absolute;
+            top             : 0;
+            left            : 0;
+
+            @include breakpoint(xs) {
+              background-size : 40px 60px;
+              width           : 40px;
+              height          : 60px;
+            }
+          }
+
+          &__title,
+          &__subtitle {
+            font-family   : 'RobotoCondensed-Regular', Helvetica, Arial, sans-serif;
+            font-size     : 14px;
+            margin-bottom : 0;
+            color         : $grey-dark;
+          }
+        }
+
+        &__item {
+            flex-basis       : 33.33%;
+            margin           : 0 30px 10px 0;
+            flex-direction   : column;
+            background-color : $white;
+            box-shadow       : 0 2px 3px 0 rgba(0, 0, 0, 0.05);
+
+            &:first-child {
+                margin-left : 10px;
+            }
+
+            &:last-child {
+                margin-right : 10px;
+            }
+
+            @include breakpoint(sm) {
+                margin : 5px;
+
+              &:first-child {
+                margin-left : 0;
+              }
+
+              &:last-child {
+                margin-right : 0;
+              }
+            }
+
+            @include breakpoint(xs) {
+              margin : 10px 0;
+            }
+
+            &__image {
+                width      : 100%;
+                min-height : 210px;
+                max-height : 210px;
+
+                @include breakpoint(sm) {
+                  min-height : 180px;
+                  max-height : 180px;
+                }
+
+                @include breakpoint(xs) {
+                  max-height : 100%;
+                }
+            }
+
+            &__content {
+                padding : 15px 20px 0;
+            }
+
+            &__footer {
+                padding : 0 20px 15px;
+            }
+
+            &__title {
+                font-family : 'RobotoCondensed-Regular', Helvetica, Arial, sans-serif;
+                font-size   : 14px;
+                margin      : 0;
+                color       : #333;
+            }
+
+            &__price {
+                font-family    : 'SteelfishBold', Helvetica, Arial, sans-serif;
+                font-size      : 36px;
+                color          : $grey-dark;
+                margin         : 0 0 10px 0;
+            }
+
+            &__number {
+              .form-control {
+                line-height : 20px;
+                font-size   : 20px;
+                font-family : 'RobotoBold', Helvetica, Arial, sans-serif;
+                color       : #333;
+                border      : none;
+                padding     : 11px 10px 0 10px;
+                box-shadow  : none;
+
+                background-color : $white;
+              }
+
+              .picker-unit-right {
+                margin-left : 5px;
+              }
+
+              .input-group {
+                height     : 40px;
+                background : $white;
+                padding    : 0 30px;
+                position   : relative;
+                min-width  : 117px;
+                border     : 1px solid $grey-dark;
+                text-align : center;
+
+                @include breakpoint(sm) {
+                  min-width : 0;
+                }
+              }
+
+              .input-group-addon {
+                font-size     : 15px;
+                font-family   : Consolas, Courier, monospace;
+                width         : 18px;
+                font-weight   : bold;
+                padding       : 1px 0 2px;
+                color         : $white;
+                text-align    : center;
+                border        : none;
+                border-radius : 9px;
+                cursor        : pointer;
+                position      : absolute;
+                display       : inline-block;
+
+                background-color : #333;
+
+                top : 13px;
+
+                &:first-child {
+                  left : 10px;
+                }
+
+                &:last-child {
+                  right : 10px;
+                }
+
+                &:hover {
+                  opacity : 0.8;
+                }
+              }
+            }
+
+            &__select {
+              background  : #333;
+              color       : $white;
+              border      : 1px solid $grey-dark;
+              height      : 44px;
+              line-height : 44px;
+              padding     : 0;
+              min-width   : 100%;
+              font-size   : 14px;
+              font-weight : normal;
+
+              font-family    : 'RobotoCondensed-Bold', Helvetica, Arial, sans-serif;
+              margin-top     : 8px;
+              text-transform : uppercase;
+
+              &:hover {
+                background-color : #111;
+              }
+            }
+        }
+    }
+
+    .deals {
+      position       : relative;
+      margin         : 10px 0;
+      padding-bottom : 10px;
+
+      &__bg {
+        margin-left  : calc(50% - 50vw);
+        margin-right : calc(50% - 50vw);
+
+        position  : absolute;
+        width     : 100vw;
+        height    : 100%;
+        top       : 0;
+        bottom    : 0;
+
+        background-color : #ececec;
+        z-index : 0;
+      }
+
+      &__header {
+        padding     : 18px 20px 20px 70px;
+        margin      : 0 10px;
+        position    : relative;
+        text-align  : left;
+
+        @include breakpoint(xs) {
+          padding : 10px 10px 10px 60px;
+          margin  : 0;
+        }
+
+        &::before {
+          content         : '';
+          background      : url('/assets/img/tickets/icon-deal-badge.png');
+          background-size : 50px 70px;
+          width           : 50px;
+          height          : 70px;
+          position        : absolute;
+          top             : 0;
+          left            : 0;
+
+          @include breakpoint(xs) {
+            background-size : 40px 60px;
+            width           : 40px;
+            height          : 60px;
+          }
+        }
+
+        &__title,
+        &__subtitle {
+          font-family   : 'RobotoCondensed-Regular', Helvetica, Arial, sans-serif;
+          font-size     : 14px;
+          margin-bottom : 0;
+          color         : $grey-dark;
+        }
+      }
+
+      .tickets__content {
+        position : relative;
+      }
+    }
+
+    .tickets__item--a-quarter.tickets__item--is-vip {
+      /*flex-basis : calc(25% - 2 * 10px);
+
+      .tickets__item__header {
+        position : relative;
+        z-index  : 1;
+      }
+
+      .controls .tickets__item__number .input-group {
+        min-width : 191px;
+
+        @include breakpoint(sm) {
+          min-width : 117px;
+        }
+      }
+
+      &::after {
+        background-size : 35px 55px;
+        width           : 35px;
+        height          : 55px;
+        top             : -3px;
+      }
+
+      @include breakpoint(sm) {
+        flex-basis : calc(50% - 2 * 10px);
+      }*/
+    }
+}

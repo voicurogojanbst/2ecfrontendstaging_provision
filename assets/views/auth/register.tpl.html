@@ -1,0 +1,269 @@
+<div class="page-container page-container__bg">
+    <div class="container register-page">
+        <h1>Create account</h1>
+
+        <form class="margin-top-40" name="registerForm" ng-submit="rc.register(registerForm)" novalidate>
+            <fieldset class="form-group form-group--full-width" ng-show="rc.flags.showRegisterError">
+                <div class="error-alert">{{rc.model.errorMessage}}</div>
+            </fieldset>
+
+            <fieldset class="form-group">
+                <label for="first-name" class="hidden-xs control-label control-label--dark">{{'REGISTER.FIRST_NAME' | translate}}</label>
+                <input type="text"
+                       id="first-name"
+                       class="form-control form-control--dark"
+                       name="firstName"
+                       placeholder="{{'REGISTER.FIRST_NAME' | translate}}"
+                       autocomplete="off"
+                       ng-class="{'has-error': registerForm.firstName.$invalid && registerForm.$submitted}"
+                       ng-required="true"
+                       ng-model="rc.model.firstName" />
+                <span ng-messages="registerForm.firstName.$error" ng-show="registerForm.$submitted">
+                    <span class="error" ng-message="required">{{'VALIDATIONS_ERRORS.IS_REQUIRED' | translate}}</span>
+                </span>
+            </fieldset>
+
+            <fieldset class="form-group">
+                <label for="last-name" class="hidden-xs control-label control-label--dark">{{'REGISTER.LAST_NAME' | translate}}</label>
+                <input type="text"
+                       id="last-name"
+                       class="form-control form-control--dark"
+                       name="lastName"
+                       placeholder="{{'REGISTER.LAST_NAME' | translate}}"
+                       autocomplete="off"
+                       ng-class="{'has-error': registerForm.lastName.$invalid && registerForm.$submitted}"
+                       ng-required="true"
+                       ng-model="rc.model.lastName"/>
+                <span ng-messages="registerForm.lastName.$error" ng-show="registerForm.$submitted">
+                    <span class="error" ng-message="required">{{'VALIDATIONS_ERRORS.IS_REQUIRED' | translate}}</span>
+                </span>
+            </fieldset>
+
+            <fieldset class="form-group">
+                <label for="email" class="hidden-xs control-label control-label--dark">{{'REGISTER.EMAIL' | translate}}</label>
+                <input type="email"
+                       id="email"
+                       class="form-control form-control--dark"
+                       name="email"
+                       placeholder="{{'REGISTER.EMAIL' | translate}}"
+                       autocomplete="off"
+                       ng-pattern="/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/"
+                       ng-class="{'has-error': registerForm.email.$invalid && registerForm.$submitted}"
+                       ng-required="true"
+                       ng-model="rc.model.email"/>
+                <span ng-messages="registerForm.email.$error" ng-show="registerForm.$submitted">
+                    <span class="error" ng-message="required">{{'VALIDATIONS_ERRORS.IS_REQUIRED' | translate}}</span>
+                    <span class="error" ng-message="pattern">{{'VALIDATIONS_ERRORS.NOT_A_VALID_EMAIL' | translate}}</span>
+                </span>
+            </fieldset>
+
+            <fieldset class="form-group">
+                <label for="phone" class="hidden-xs control-label control-label--dark">{{'REGISTER.PHONE' | translate}}</label>
+                <input type="text"
+                       id="phone"
+                       class="form-control form-control--dark"
+                       name="phone"
+                       placeholder="{{'REGISTER.PHONE' | translate}}"
+                       autocomplete="off"
+                       ng-pattern="/^[+]?([0-9]*[\.\s\-\(\)]|[0-9]+){3,24}$/"
+                       ng-class="{'has-error': registerForm.phone.$invalid && registerForm.$submitted}"
+                       ng-required="true"
+                       ng-model="rc.model.phone" />
+                <span ng-messages="registerForm.phone.$error" ng-show="registerForm.$submitted">
+                    <span class="error" ng-message="required">{{'VALIDATIONS_ERRORS.IS_REQUIRED' | translate}}</span>
+                    <span class="error" ng-message="pattern">{{'VALIDATIONS_ERRORS.NOT_A_VALID_PHONE_NUMBER' | translate}}</span>
+                </span>
+            </fieldset>
+
+            <fieldset class="form-group">
+                <label for="password" class="hidden-xs control-label control-label--dark">{{'REGISTER.PASSWORD' | translate}}</label>
+                <input type="password"
+                       id="password"
+                       class="form-control form-control--dark"
+                       name="password"
+                       placeholder="{{'REGISTER.PASSWORD' | translate}}"
+                       autocomplete="off"
+                       ng-class="{'has-error': registerForm.password.$invalid && registerForm.$submitted, 'is-not-empty': !!rc.model.password}"
+                       ng-required="true"
+                       ng-minlength="6"
+                       ng-model="rc.model.password" />
+                <span ng-messages="registerForm.password.$error" ng-show="registerForm.$submitted">
+                    <span class="error" ng-message="required">{{'VALIDATIONS_ERRORS.IS_REQUIRED' | translate}}</span>
+                    <span class="error" ng-message="pattern">{{'VALIDATIONS_ERRORS.NOT_A_VALID_DATE' | translate: '{acceptedFormat: "DD/MM/YYYY"}'}}</span>
+                    <span class="error" ng-message="minlength">{{'VALIDATIONS_ERRORS.MIN_LENGTH' | translate : '{min: 6}'}}</span>
+                </span>
+            </fieldset>
+
+            <fieldset class="form-group">
+                <label for="password-confirmation" class="hidden-xs control-label control-label--dark">{{'REGISTER.CONFIRM_PASSWORD' | translate}}</label>
+                <input type="password"
+                       id="password-confirmation"
+                       class="form-control form-control--dark"
+                       name="passwordConfirmation"
+                       placeholder="{{'REGISTER.CONFIRM_PASSWORD' | translate}}"
+                       autocomplete="off"
+                       compare-to="rc.model.password"
+                       ng-class="{'has-error': registerForm.passwordConfirmation.$invalid && registerForm.$submitted, 'is-not-empty': !!rc.model.passwordConfirmation}"
+                       ng-required="true"
+                       ng-minlength="6"
+                       ng-model-options="{allowInvalid: true}"
+                       ng-model="rc.model.passwordConfirmation" />
+                <span ng-messages="registerForm.passwordConfirmation.$error" ng-show="registerForm.$submitted">
+                    <span class="error" ng-message="required">{{'VALIDATIONS_ERRORS.IS_REQUIRED' | translate}}</span>
+                    <span class="error" ng-message="minlength">{{'VALIDATIONS_ERRORS.MIN_LENGTH' | translate : '{min: 6}'}}</span>
+                    <span class="error" ng-message="compareTo">{{'VALIDATIONS_ERRORS.MUST_MATCH' | translate : '{min: 6}'}}</span>
+                </span>
+            </fieldset>
+
+            <h2 class="margin-top-30">{{'REGISTER.SHIPPING_ADDRESS' | translate}}</h2>
+            <fieldset class="form-group form-group--a-quarter">
+                <label class="control-label control-label--dark hidden-xs">{{'REGISTER.COUNTRY' | translate}}</label>
+
+                <ui-select ng-model="rc.model.country" class="" search-enabled="true" ng-change="rc.countryChanged()">
+                    <ui-select-match placeholder="Please select a country">{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="country.name as country in rc.model.countryList  | filter: {name: $select.search}">
+                        <div ng-bind-html="country.name"></div>
+                    </ui-select-choices>
+                </ui-select>
+            </fieldset>
+
+            <fieldset class="form-group form-group--a-quarter">
+                <label for="city" class="control-label control-label--dark hidden-xs">{{'REGISTER.CITY' | translate}}</label>
+            <span ng-click="rc.flags.showCityTextBox = !rc.flags.showCityTextBox"
+                  ng-show="rc.flags.countryHasCityList && !rc.flags.showCityTextBox"
+                  class="pull-right pointer">
+                Other? Please add it.
+            </span>
+            <span ng-click="rc.flags.showCityTextBox = !rc.flags.showCityTextBox"
+                  ng-show="rc.flags.countryHasCityList && rc.flags.showCityTextBox"
+                  class="pull-right pointer">
+                Back to list.
+            </span>
+                <div class="clearfix"></div>
+                <input type="text"
+                       id="city"
+                       class="form-control form-control--dark"
+                       name="city"
+                       placeholder="{{'REGISTER.CITY' | translate}}"
+                       autocomplete="off"
+                       ng-class="{'has-error': registerForm.city.$invalid && registerForm.$submitted}"
+                       ng-required="true"
+                       ng-model="rc.model.city"
+                       ng-if="rc.flags.showCityTextBox" />
+            <span ng-messages="registerForm.city.$error" ng-show="registerForm.$submitted">
+                <span class="error" ng-message="required">{{'VALIDATIONS_ERRORS.IS_REQUIRED' | translate}}</span>
+            </span>
+
+                <ui-select ng-model="rc.model.city" class="" search-enabled="true" ng-if="!rc.flags.showCityTextBox">
+                    <ui-select-match placeholder="Please select a city">{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="city.name as city in rc.model.cityList  | filter: {name: $select.search}">
+                        <div ng-bind-html="city.name"></div>
+                    </ui-select-choices>
+                </ui-select>
+            </fieldset>
+
+            <fieldset class="form-group form-group--a-quarter">
+                <label for="street" class="control-label control-label--dark hidden-xs">{{'REGISTER.STREET' | translate}}</label>
+                <input type="text"
+                       id="street"
+                       class="form-control form-control--dark"
+                       name="street"
+                       placeholder="{{'REGISTER.STREET' | translate}}"
+                       autocomplete="off"
+                       ng-class="{'has-error': registerForm.street.$invalid && registerForm.$submitted}"
+                       ng-required="true"
+                       ng-model="rc.model.street"/>
+            <span ng-messages="registerForm.street.$error" ng-show="registerForm.$submitted">
+                <span class="error" ng-message="required">{{'VALIDATIONS_ERRORS.IS_REQUIRED' | translate}}</span>
+            </span>
+            </fieldset>
+
+            <fieldset class="form-group form-group--a-quarter">
+                <label for="number" class="control-label control-label--dark hidden-xs">{{'REGISTER.NUMBER' | translate}}</label>
+                <input type="text"
+                       id="number"
+                       class="form-control form-control--dark"
+                       name="number"
+                       placeholder="{{'REGISTER.NUMBER' | translate}}"
+                       autocomplete="off"
+                       ng-class="{'has-error': registerForm.number.$invalid && registerForm.$submitted}"
+                       ng-required="true"
+                       ng-model="rc.model.number"/>
+            <span ng-messages="registerForm.number.$error" ng-show="registerForm.$submitted">
+                <span class="error auto" ng-message="required">{{'VALIDATIONS_ERRORS.IS_REQUIRED' | translate}}</span>
+            </span>
+            </fieldset>
+
+            <fieldset class="form-group form-group--a-quarter">
+                <label for="block" class="control-label control-label--dark auto hidden-xs">{{'REGISTER.BLOCK' | translate}}</label>
+                <input type="text"
+                       id="block"
+                       class="form-control form-control--dark"
+                       name="block"
+                       placeholder="{{'REGISTER.BLOCK' | translate}}"
+                       autocomplete="off"
+                       ng-model="rc.model.block" />
+            </fieldset>
+
+            <fieldset class="form-group form-group--a-quarter">
+                <label for="floorNumber" class="control-label control-label--dark hidden-xs">{{'REGISTER.FLOOR' | translate}}</label>
+                <input type="text"
+                       id="floorNumber"
+                       class="form-control form-control--dark"
+                       name="floorNumber"
+                       placeholder="{{'REGISTER.NUMBER' | translate}}"
+                       autocomplete="off"
+                       ng-model="rc.model.floorNumber" />
+            </fieldset>
+
+            <fieldset class="form-group form-group--a-quarter">
+                <label for="apartment" class="control-label control-label--dark auto hidden-xs">{{'REGISTER.APARTMENT' | translate}}</label>
+                <input type="text"
+                       id="apartment"
+                       class="form-control form-control--dark"
+                       name="apartment"
+                       placeholder="{{'REGISTER.APARTMENT' | translate}}"
+                       autocomplete="off"
+                       ng-model="rc.model.apartment" />
+            </fieldset>
+
+            <fieldset class="form-group form-group--a-quarter">
+                <label for="zip" class="control-label control-label--dark hidden-xs">{{'REGISTER.ZIP' | translate}}</label>
+                <input type="text"
+                       id="zip"
+                       class="form-control form-control--dark"
+                       name="zip"
+                       placeholder="{{'REGISTER.ZIP' | translate}}"
+                       autocomplete="off"
+                       ng-class="{'has-error': registerForm.zip.$invalid && registerForm.$submitted}"
+                       ng-required="true"
+                       ng-model="rc.model.zipCode"/>
+            <span ng-messages="registerForm.zip.$error" ng-show="registerForm.$submitted">
+                <span class="error" ng-message="required">{{'VALIDATIONS_ERRORS.IS_REQUIRED' | translate}}</span>
+            </span>
+            </fieldset>
+
+            <div class="text-center margin-top-30">
+                <label class="checkbox text-dark" for="sign-up-for-newsletter">
+                    <input type="checkbox" id="sign-up-for-newsletter" ng-model="rc.model.subscribeNewsletter" />
+                    <span class="checkbox__tick-box"></span>
+                    &nbsp;{{'REGISTER.SING_UP_NEWSLETTER' | translate}}
+                </label>
+            </div>
+
+            <div class="text-center margin-top-40">
+                <button class="std-button std-button--light std-button--wide" type="submit"
+                        ng-disabled="registerForm.$submitted && !registerForm.$valid"
+                        analytics-on
+                        analytics-event="Register submit"
+                        analytics-category="Authentication">
+                    {{'ACTIONS.REGISTER' | translate | uppercase}}
+                </button>
+            </div>
+
+            <div class="text-center margin-top-30">
+                <p class="text-smaller" ng-bind-html="'REGISTER.TERMS_AND_CONDITIONS' | translate"></p>
+            </div>
+        </form>
+    </div>
+</div>

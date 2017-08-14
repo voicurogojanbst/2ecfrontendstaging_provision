@@ -1,0 +1,63 @@
+<section class="ticket">
+    <div ng-switch="product.productType">
+        <img ng-switch-when="virtual" class="ticket__image" src="/assets/img/tickets/icon-ticket-yellow.png" alt="Ticket" />
+        <img ng-switch-when="simple" class="ticket__image" src="/assets/img/tickets/icon-tshirt-yellow.png" alt="Ticket" />
+    </div>
+
+    <div class="ticket__description">
+        <p class="ticket__description__wrap">
+            <strong><span ng-if="product.qty">{{::product.qty}} x</span> {{::product.productName}}</strong>
+            <a class="btn padding-bottom-0 padding-top-0 name-on-ticket" ng-click="opc.editNameOnTicket(product.ticketInfoId)"
+               ng-show="product.ticketInfoId"
+               title="Change name on ticket">
+                Name on ticket: <strong>{{::product.ticketName}}</strong> <i class="fa fa-pencil"></i>
+            </a>
+            <span ng-show="product.ticketNumber && !product.wasUpgraded">
+                <br /><span class="hidden-xs">Ticket Number:</span> <em>{{::product.ticketNumber}}</em>
+            </span>
+        </p>
+    </div>
+
+    <div class="ticket__download" ng-switch="product.productType">
+        <div ng-switch-when="virtual">
+            <div class="dropdown ticket__upgrade pull-left" ng-if="product.upgradeTo">
+                <button class="std-button std-button--bordered std-button--in-form dropdown-toggle" type="button" id="dropdownMenu1"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Upgrade to
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu animated flipInX" aria-labelledby="dropdownMenu1">
+                    <li>
+                        <a ng-repeat="upgrade in product.upgradeTo" class="pointer"
+                           ng-click='opc.upgradeTicket(upgrade, product.ticketId)'
+                           analytics-on
+                           analytics-event="Ticket upgrade"
+                           analytics-category="Account">
+                            {{upgrade.name}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <a class="std-button std-button--light std-button--in-form margin-left-10" href="{{::product.downloadUrl}}" target="_blank"
+               ng-show="product.downloadUrl"
+               analytics-on
+               analytics-event="Ticket download"
+               analytics-category="Account">
+                {{::'ORDERS.DOWNLOAD' | translate}} <i class="glyphicon glyphicon-download-alt"></i>
+            </a>
+
+            <span ng-show="product.wasUpgraded" class="ticket__upgrade">
+                {{::'ORDERS.UPGRADED' | translate}}
+            </span>
+
+            <!--<span ng-hide="product.downloadUrl || product.giftcardCoupon || product.wasUpgraded">
+                <span>{{::'ORDERS.DOWNLOAD_SOON' | translate}}</span>
+            </span>-->
+
+            <span ng-show="product.giftcardCoupon">
+                {{::'GIFT_CARD.CODE' | translate}}: <strong>{{::product.giftcardCoupon}}</strong>
+            </span>
+        </div>
+    </div>
+</section>

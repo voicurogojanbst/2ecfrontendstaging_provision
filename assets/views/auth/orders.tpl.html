@@ -1,0 +1,78 @@
+<div class="ec-tab padding-top-20">
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <article ng-repeat="order in oc.get()" class="order margin-bottom-15">
+                <header class="order__info">
+                    <h3 class="order-title">Order #<strong>{{::order.id}}</strong>/{{::order.orderDate}}</h3>
+                    <h4 class="text-right pull-right">
+                        <span>{{::'ORDERS.PRICE' | translate}}:</span> <strong>{{order.orderTotal}}</strong> Lei <br />
+                        <span ng-if="order.isInstallment">
+                            <span>
+                                Paid: <strong>{{order.totalPaid}}</strong> Lei
+                            </span><br />
+                            <span ng-if="order.totalRemaining > 0">
+                                Remaining: <strong class="text-orange">{{order.totalRemaining}}</strong> Lei
+                            </span>
+                        </span>
+                    </h4>
+                    <p class="text-small">
+                        <span>Status: <strong>{{::order.status}}</strong><br />
+                            Payment method:
+                            <strong ng-if="order.isInstallment">payment plan</strong>
+                            <strong ng-if="!order.isInstallment">one time</strong>
+                        </span>
+                    </p>
+                    <div class="clear"></div>
+                </header>
+
+                <div class="products-list">
+                    <order-product ng-repeat="product in order.products.simple" order-item="product"></order-product>
+                    <order-product ng-repeat="product in order.products.virtual" order-item="product"></order-product>
+                </div>
+
+                <div class="table-responsive margin-top-30" ng-if="order.isInstallment && order.products.installment">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Payment</th>
+                            <th>Date/Time</th>
+                            <th>Status</th>
+                            <th class="text-right">Amount</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="item in order.products.installment">
+                            <td>{{item.productName}}</td>
+                            <td>{{item.orderDate}}</td>
+                            <td>{{item.installmentStatus}}</td>
+                            <td class="text-right">{{item.totalPaid}} Lei</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div ng-if="order.installmentsRemaining && order.products.installment" class="margin-top-15 row">
+                    <div class="col-md-4">
+                        Remaining payments: <strong class="text-orange">{{order.installmentsRemaining}}</strong><br />
+                        Next payment: <strong class="text-orange">{{order.nextPayment}}</strong>
+                        <p class="margin-top-10">
+                            <a href="javascript:null" ng-click="oc.updateCard(order.updateCardUrl)">Update Credit Card</a>
+                        </p>
+                    </div>
+
+                    <div class="col-md-8 text-right">
+                        <button ng-click="oc.cancelOrder(order.cancelOrderUrl)"
+                                class="btn std-button std-button--bordered std-button--wide margin-right-10">
+                            Cancel Payment Plan
+                        </button>
+                        <button ng-click="oc.payFull(order.payFullUrl)" class="btn std-button std-button--light std-button--wide">
+                            Pay Remainder Amount
+                        </button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </article>
+            <h2 ng-show="oc.shouldDisplayNoOrdersMessage()" class="no-orders">{{'ORDERS.NO_ORDER' | translate}}</h2>
+        </div>
+    </div>
+</div>

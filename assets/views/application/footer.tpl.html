@@ -1,0 +1,102 @@
+<footer ng-hide="fc.shouldHideFooter" data-js="footer">
+    <div class="container">
+        <div class="col-md-2 col-sm-4">
+            <ul>
+                <li>
+                    <a ui-sref="ElectricCastlePublic.Home">
+                        {{'HEADER.HOME' | translate}}
+                    </a>
+                </li>
+                <li>
+                    <a ui-sref="ElectricCastlePublic.LineUp.List">
+                        Line up
+                    </a>
+                </li>
+                <li>
+                    <a ui-sref="ElectricCastlePublic.Tickets">
+                        {{'HEADER.TICKETS' | translate}}
+                    </a>
+                </li>
+                <li>
+                    <a ui-sref="ElectricCastlePublic.Merchandise">
+                        {{'HEADER.SHOP' | translate}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-2 col-sm-4">
+            <ul>
+                <li>
+                    <a ui-sref="ElectricCastlePublic.Partners">
+                        Partners
+                    </a>
+                </li>
+                <li>
+                    <a ui-sref="ElectricCastlePublic.TheCastle">
+                        {{'INFO.TABS.THE_CASTLE' | translate}}
+                    </a>
+                </li>
+                <li>
+                    <a ui-sref="ElectricCastlePublic.History">
+                        {{'INFO.TABS.HISTORY' | translate}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-3 col-sm-4">
+            <ul>
+                <li>
+                    <a ui-sref="ElectricCastlePublic.TicketsInfo">
+                        Tickets Info
+                    </a>
+                </li>
+                <li>
+                    <a ui-sref="ElectricCastlePublic.PrivacyPolicy">
+                        Privacy Policy
+                    </a>
+                </li>
+                <li>
+                    <a ui-sref="ElectricCastlePublic.TermsAndConditions">
+                        Terms &amp; Conditions
+                    </a>
+                </li>
+                <li>
+                    <a ui-sref="ElectricCastlePublic.RulesAndRegulations">
+                        Rules &amp; Regulations
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="clearfix visible-xs"></div>
+        <div class="col-md-5 col-sm-12">
+            <img ui-sref="ElectricCastlePublic.Home" src="/assets/img/logo-footer.png" class="logo img-responsive" alt="" />
+            <div class="clearfix"></div>
+            <!--<p>
+                {{'FOOTER.EMAIL_SUBSCRIBE' | translate}}
+            </p>
+            <form name="newsletterForm" ng-submit="fc.subscribe(newsletterForm)" class="newsletter" novalidate="true">
+                <input type="email"
+                       id="email"
+                       name="email"
+                       class="text-dark pull-left"
+                       placeholder="{{'REGISTER.EMAIL' | translate}}"
+                       autocomplete="off"
+                       ng-pattern="/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/"
+                       ng-class="{'has-error': newsletterForm.email.$invalid && newsletterForm.$submitted}"
+                       ng-required="true"
+                       ng-model="fc.model.email"/>
+                <input type="submit" value="OK" class="button button-grey pull-left" />
+                <div class="clearfix"></div>
+
+                <span ng-messages="newsletterForm.email.$error" ng-show="newsletterForm.$submitted">
+                    <span class="error" ng-message="required">{{'VALIDATIONS_ERRORS.IS_REQUIRED' | translate}}</span>
+                    <span class="error" ng-message="pattern">{{'VALIDATIONS_ERRORS.NOT_A_VALID_EMAIL' | translate}}</span>
+                </span>
+            </form>-->
+        </div>
+        <p class="text-smaller col-md-12 margin-top-10 text-right">
+            Contact us at: <a href="mailto:contact@electriccastle.ro">contact@electriccastle.ro</a><br />
+            Copyright &copy; SC Festival Tickets Management SRL, CUI: RO35190617, Reg. Com.: J12/3329/02.11.2015
+        </p>
+    </div>
+</footer>
